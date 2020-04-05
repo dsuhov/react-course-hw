@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "npx webpack --mode production",
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --fix ./",
     "test": "npx jest"
   },
   "repository": {
@@ -18,6 +19,11 @@
   },
   "homepage": "https://github.com/dsuhov/react-course-hw#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "babel-loader": "^8.1.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   }
