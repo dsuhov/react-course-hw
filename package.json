@@ -2,8 +2,9 @@
   "name": "react-course-hw",
   "version": "1.0.0",
   "description": "Homework for react-js-course",
-  "main": "app.js",
+  "private": true,
   "scripts": {
+    "build": "npx webpack --mode production",
     "test": "npx jest"
   },
   "repository": {
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/dsuhov/react-course-hw/issues"
   },
-  "homepage": "https://github.com/dsuhov/react-course-hw#readme"
+  "homepage": "https://github.com/dsuhov/react-course-hw#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
 }
