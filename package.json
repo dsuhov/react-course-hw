@@ -1,0 +1,19 @@
+{
+  "name": "react-course-hw",
+  "version": "1.0.0",
+  "description": "Homework for react-js-course",
+  "main": "app.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsuhov/react-course-hw.git"
+  },
+  "author": "Dmitriy Sukhov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsuhov/react-course-hw/issues"
+  },
+  "homepage": "https://github.com/dsuhov/react-course-hw#readme"
+}
