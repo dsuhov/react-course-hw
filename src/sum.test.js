@@ -5,6 +5,6 @@ test("ariphm sum to equal 104", () => {
 });
 
 /*
-* Note: babel-jest is automatically installed when installing Jest 
-* and will automatically transform files if a babel configuration exists in your project.
-*/
+ * Note: babel-jest is automatically installed when installing Jest
+ * and will automatically transform files if a babel configuration exists in your project.
+ */

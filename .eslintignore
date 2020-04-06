@@ -1,0 +1,3 @@
+# In addition to any patterns in a .eslintignore file, ESLint always ignores files in /node_modules/* and /bower_components/*.
+/dist
+*.config.js
