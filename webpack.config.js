@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: './src/app.ts',
@@ -24,4 +25,14 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json"]
   },
+  devServer: {
+    // When using the HTML5 History API, the index.html page will likely have to be served in place of any 404 responses.
+    historyApiFallback: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      minify: false
+    }),
+  ]
 }
