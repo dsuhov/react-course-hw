@@ -10,6 +10,19 @@
     "sourceType": "module"
   },
   "rules": {
-    "prettier/prettier": "error"
-  }
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["webpack.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": ["off"]
+      }
+    }
+  ]
 }
