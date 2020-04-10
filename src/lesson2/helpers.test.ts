@@ -1,13 +1,19 @@
-import { isFunction } from "./helpers";
+import { isNumber, isFunction } from "./helpers";
 
-test("sin", () => {
-  expect(isFunction("sin")).toBe(true);
-});
+describe("Helpers tests", () => {
+  it("78", () => {
+    expect(isNumber("78")).toBe(true);
+  });
 
-test("tan", () => {
-  expect(isFunction("tan")).toBe(true);
-});
+  it("!78", () => {
+    expect(isNumber("!78")).toBe(false);
+  });
 
-test("tdan", () => {
-  expect(isFunction("tdan")).toBe(false);
-});
+  it("!78", () => {
+    expect(isFunction("!78")).toBe(true);
+  });
+
+  it("89", () => {
+    expect(isFunction("89")).toBe(false);
+  });
+})

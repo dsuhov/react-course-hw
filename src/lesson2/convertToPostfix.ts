@@ -23,17 +23,13 @@ export default (inputArr: string[]): string[] => {
         operatorsArray.push(el);
       } else if (operatorsArray.length > 0) {
         while (
-          operatorsArray.length > 0
-            ? isFunction(operatorsArray[operatorsArray.length - 1])
-            : false ||
-              ((mathOperatorsPriorities[
-                operatorsArray[operatorsArray.length - 1]
-              ] > mathOperatorsPriorities[el] ||
-                (mathOperatorsPriorities[
-                  operatorsArray[operatorsArray.length - 1]
-                ] === mathOperatorsPriorities[el] &&
-                  mathOperatorsPriorities[el] < 3)) &&
-                operatorsArray[operatorsArray.length - 1] !== "(")
+          (mathOperatorsPriorities[operatorsArray[operatorsArray.length - 1]] >
+            mathOperatorsPriorities[el] ||
+            (mathOperatorsPriorities[
+              operatorsArray[operatorsArray.length - 1]
+            ] === mathOperatorsPriorities[el] &&
+              mathOperatorsPriorities[el] < 3)) &&
+          operatorsArray[operatorsArray.length - 1] !== "("
         ) {
           resutingArray.push(operatorsArray.pop() as string);
         }
