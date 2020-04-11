@@ -18,4 +18,4 @@ export const calcStack = (stack: string[]): number => {
   }
 
   return workingStack[0];
-}
+};

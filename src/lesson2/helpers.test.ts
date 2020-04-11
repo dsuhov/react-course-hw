@@ -16,4 +16,4 @@ describe("Helpers tests", () => {
   it("89", () => {
     expect(isFunction("89")).toBe(false);
   });
-})
+});

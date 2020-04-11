@@ -43,7 +43,7 @@ export const powOf: OperationCalc = (valuesStack) => {
 
 export const factor: OperationCalc = (valuesStack) => {
   let result = 1;
-  const factorVale = Number(valuesStack.pop())
+  const factorVale = Number(valuesStack.pop());
 
   for (let i = 1; i <= factorVale; i++) {
     result *= i;
