@@ -2,16 +2,16 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/app.ts",
+  entry: "./src/index.tsx",
   output: {
-    filename: "bundle.js",
+    filename: "index.js",
     path: path.resolve(__dirname, "./dist"),
   },
   devtool: "source-map",
   module: {
     rules: [
       {
-        test: /\.(js|ts)?$/,
+        test: /\.(js|ts)x?$/,
         loader: "babel-loader",
         exclude: /node_modules/,
       },

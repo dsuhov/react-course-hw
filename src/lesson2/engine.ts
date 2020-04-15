@@ -10,4 +10,4 @@ export const doCalculation = (input: string): number => {
   }
 
   return calcStack(splittedInput);
-}
+};
