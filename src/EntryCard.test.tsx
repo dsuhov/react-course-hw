@@ -7,6 +7,7 @@ const defaultValues: EntryCardProps = {
   definition: "Pan",
   meaning: "Сковорода",
   entryClickHandler: jest.fn(),
+  id: 42,
 };
 
 const defaultValuesWithDisabledNo: EntryCardProps = {
@@ -14,6 +15,7 @@ const defaultValuesWithDisabledNo: EntryCardProps = {
   meaning: "Сковорода",
   entryClickHandler: jest.fn(),
   disabled: false,
+  id: 42,
 };
 
 const defaultValuesWithDisabledYes: EntryCardProps = {
@@ -21,6 +23,7 @@ const defaultValuesWithDisabledYes: EntryCardProps = {
   meaning: "Сковорода",
   entryClickHandler: jest.fn(),
   disabled: true,
+  id: 42,
 };
 
 describe("Testing Entry Card", () => {
@@ -46,6 +49,7 @@ describe("Testing Entry Card", () => {
         definition="dog"
         meaning="Собака"
         entryClickHandler={onClick}
+        id={42}
       />
     );
 
@@ -61,6 +65,7 @@ describe("Testing Entry Card", () => {
         definition="dog"
         meaning="Собака"
         entryClickHandler={onClick}
+        id={42}
       />
     );
 

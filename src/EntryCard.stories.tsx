@@ -13,6 +13,7 @@ export const withDefaultValues = () => (
     entryClickHandler={action("Card Clicked")}
     definition={text("Entry Definition", "Dog")}
     meaning={text("Entry Meaning", "Собака")}
+    id={1}
   />
 );
 
@@ -22,5 +23,6 @@ export const withDisabled = () => (
     entryClickHandler={action("Card Clicked")}
     definition={text("Entry Definition", "Dog")}
     meaning={text("Entry Meaning", "Собака")}
+    id={1}
   />
 );

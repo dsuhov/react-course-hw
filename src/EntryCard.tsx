@@ -5,7 +5,7 @@ const EntryCard: React.FC<EntryCardProps> = (props) =>
   props.disabled ? (
     <h3>Deleted.</h3>
   ) : (
-    <dl onClick={() => props.entryClickHandler(!props.disabled)}>
+    <dl onClick={() => props.entryClickHandler(!props.disabled, props.id)}>
       <dt>{props.definition}</dt>
       <dd>{props.meaning}</dd>
     </dl>
