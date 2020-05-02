@@ -16,12 +16,12 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run check",
-      "pre-push": "npm run check"
-    }
-  },
+  // "husky": {
+  //   "hooks": {
+  //     "pre-commit": "npm run check",
+  //     "pre-push": "npm run check"
+  //   }
+  // },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dsuhov/react-course-hw.git"
