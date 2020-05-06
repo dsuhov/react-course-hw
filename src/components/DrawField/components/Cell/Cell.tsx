@@ -1,14 +1,22 @@
-import React, { FC } from "react";
+import React, { Component } from "react";
 import { CellProps } from "types/Cell";
 import { CellDrawn } from "./CellDrawn";
 
-export const Cell: FC<CellProps> = ({ x, y, isAlive, clickHandler }) => {
-  return (
-    <CellDrawn
-      isAlive={isAlive}
-      onClick={() => clickHandler(x, y)}
-      x={x}
-      y={y}
-    />
-  );
-};
+export class Cell extends Component<CellProps> {
+  constructor(props: CellProps) {
+    super(props);
+  }
+
+  shouldComponentUpdate(nextProps: CellProps) {
+    return this.props.isAlive !== nextProps.isAlive;
+  }
+
+  render() {
+    return (
+      <CellDrawn
+        {...this.props}
+        onClick={() => this.props.clickHandler(this.props.x, this.props.y)}
+      />
+    );
+  }
+}
