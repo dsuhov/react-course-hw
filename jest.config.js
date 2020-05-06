@@ -6,5 +6,7 @@ module.exports = {
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
   },
-  testPathIgnorePatterns: ["<rootDir>/src/lesson2/"],
+  moduleNameMapper: {
+    "\\.(css|less)$": "<rootDir>/internals/__mocks__/styleMock.js",
+  },
 };

@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cell renders dead cell 1`] = `
+@keyframes animation-0 {
+  0% {
+    background-color: #050505;
+  }
+
+  50% {
+    background-color: rgb(250,42,12);
+  }
+
+  100% {
+    background-color: #fff;
+  }
+}
+
+.emotion-0 {
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  background-color: #fff;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: none;
+  border-top: none;
+}
+
+<div
+  className="emotion-0"
+  onClick={[Function]}
+  x={5}
+  y={5}
+/>
+`;
+
+exports[`Cell renders dead cell 2`] = `
+@keyframes animation-0 {
+  0% {
+    background-color: #fff;
+  }
+
+  50% {
+    background-color: rgb(59,197,0);
+  }
+
+  100% {
+    background-color: #050505;
+  }
+}
+
+.emotion-0 {
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  background-color: #050505;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: none;
+  border-top: none;
+}
+
+<div
+  className="emotion-0"
+  onClick={[Function]}
+  x={5}
+  y={5}
+/>
+`;
