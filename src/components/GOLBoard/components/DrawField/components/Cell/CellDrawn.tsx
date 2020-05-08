@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/core";
-import { CellDrawnProps } from "types/Cell";
+import { CellDrawnProps } from "types/interfaces";
 
 const borderColor = "rgb(85, 74, 58)";
 const dyingBg = "background-color: rgb(250, 42, 12)";
@@ -33,11 +33,11 @@ const animateTransitionRevived = keyframes`
 `;
 
 const MainCell = css`
-  cursor: pointer;
   width: 10px;
   height: 10px;
   border-right: 1px solid ${borderColor};
   border-bottom: 1px solid ${borderColor};
+  flex: 0 0 10px;
 `;
 
 const DeadCell = css`

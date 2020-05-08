@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CellProps } from "types/Cell";
+import { CellProps } from "types/interfaces";
 import { CellDrawn } from "./CellDrawn";
 
 export class Cell extends Component<CellProps> {

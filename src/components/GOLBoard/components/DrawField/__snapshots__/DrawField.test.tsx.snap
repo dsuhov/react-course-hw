@@ -1,0 +1,511 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Field that draw cells reders full alive field 1`] = `
+@keyframes animation-0 {
+  0% {
+    background-color: #fff;
+  }
+
+  50% {
+    background-color: rgb(59,197,0);
+  }
+
+  100% {
+    background-color: #050505;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    background-color: #fff;
+  }
+
+  50% {
+    background-color: rgb(59,197,0);
+  }
+
+  100% {
+    background-color: #050505;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    background-color: #fff;
+  }
+
+  50% {
+    background-color: rgb(59,197,0);
+  }
+
+  100% {
+    background-color: #050505;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    background-color: #fff;
+  }
+
+  50% {
+    background-color: rgb(59,197,0);
+  }
+
+  100% {
+    background-color: #050505;
+  }
+}
+
+.emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 45px;
+}
+
+.emotion-0 {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  background-color: #050505;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: 1px solid rgb(85,74,58);
+  border-top: 1px solid rgb(85,74,58);
+}
+
+.emotion-1 {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  background-color: #050505;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: none;
+  border-top: 1px solid rgb(85,74,58);
+}
+
+.emotion-4 {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  background-color: #050505;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: 1px solid rgb(85,74,58);
+  border-top: none;
+}
+
+.emotion-5 {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  background-color: #050505;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: none;
+  border-top: none;
+}
+
+<div
+  className="emotion-20"
+  size={4}
+>
+  <div
+    className="emotion-0"
+    onClick={[Function]}
+    x={0}
+    y={0}
+  />
+  <div
+    className="emotion-1"
+    onClick={[Function]}
+    x={1}
+    y={0}
+  />
+  <div
+    className="emotion-1"
+    onClick={[Function]}
+    x={2}
+    y={0}
+  />
+  <div
+    className="emotion-1"
+    onClick={[Function]}
+    x={3}
+    y={0}
+  />
+  <div
+    className="emotion-4"
+    onClick={[Function]}
+    x={0}
+    y={1}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={1}
+    y={1}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={2}
+    y={1}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={3}
+    y={1}
+  />
+  <div
+    className="emotion-4"
+    onClick={[Function]}
+    x={0}
+    y={2}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={1}
+    y={2}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={2}
+    y={2}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={3}
+    y={2}
+  />
+  <div
+    className="emotion-4"
+    onClick={[Function]}
+    x={0}
+    y={3}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={1}
+    y={3}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={2}
+    y={3}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={3}
+    y={3}
+  />
+  <div
+    className="emotion-4"
+    onClick={[Function]}
+    x={0}
+    y={4}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={1}
+    y={4}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={2}
+    y={4}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={3}
+    y={4}
+  />
+</div>
+`;
+
+exports[`Field that draw cells reders full empty field 1`] = `
+@keyframes animation-0 {
+  0% {
+    background-color: #050505;
+  }
+
+  50% {
+    background-color: rgb(250,42,12);
+  }
+
+  100% {
+    background-color: #fff;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    background-color: #050505;
+  }
+
+  50% {
+    background-color: rgb(250,42,12);
+  }
+
+  100% {
+    background-color: #fff;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    background-color: #050505;
+  }
+
+  50% {
+    background-color: rgb(250,42,12);
+  }
+
+  100% {
+    background-color: #fff;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    background-color: #050505;
+  }
+
+  50% {
+    background-color: rgb(250,42,12);
+  }
+
+  100% {
+    background-color: #fff;
+  }
+}
+
+.emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 45px;
+}
+
+.emotion-0 {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  background-color: #fff;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: 1px solid rgb(85,74,58);
+  border-top: 1px solid rgb(85,74,58);
+}
+
+.emotion-1 {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  background-color: #fff;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: none;
+  border-top: 1px solid rgb(85,74,58);
+}
+
+.emotion-4 {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  background-color: #fff;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: 1px solid rgb(85,74,58);
+  border-top: none;
+}
+
+.emotion-5 {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgb(85,74,58);
+  border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  background-color: #fff;
+  -webkit-animation: animation-0 0.1s linear;
+  animation: animation-0 0.1s linear;
+  border-left: none;
+  border-top: none;
+}
+
+<div
+  className="emotion-20"
+  size={4}
+>
+  <div
+    className="emotion-0"
+    onClick={[Function]}
+    x={0}
+    y={0}
+  />
+  <div
+    className="emotion-1"
+    onClick={[Function]}
+    x={1}
+    y={0}
+  />
+  <div
+    className="emotion-1"
+    onClick={[Function]}
+    x={2}
+    y={0}
+  />
+  <div
+    className="emotion-1"
+    onClick={[Function]}
+    x={3}
+    y={0}
+  />
+  <div
+    className="emotion-4"
+    onClick={[Function]}
+    x={0}
+    y={1}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={1}
+    y={1}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={2}
+    y={1}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={3}
+    y={1}
+  />
+  <div
+    className="emotion-4"
+    onClick={[Function]}
+    x={0}
+    y={2}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={1}
+    y={2}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={2}
+    y={2}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={3}
+    y={2}
+  />
+  <div
+    className="emotion-4"
+    onClick={[Function]}
+    x={0}
+    y={3}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={1}
+    y={3}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={2}
+    y={3}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={3}
+    y={3}
+  />
+  <div
+    className="emotion-4"
+    onClick={[Function]}
+    x={0}
+    y={4}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={1}
+    y={4}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={2}
+    y={4}
+  />
+  <div
+    className="emotion-5"
+    onClick={[Function]}
+    x={3}
+    y={4}
+  />
+</div>
+`;

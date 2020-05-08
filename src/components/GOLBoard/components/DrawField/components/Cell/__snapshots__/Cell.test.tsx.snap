@@ -16,11 +16,13 @@ exports[`Cell renders dead cell 1`] = `
 }
 
 .emotion-0 {
-  cursor: pointer;
   width: 10px;
   height: 10px;
   border-right: 1px solid rgb(85,74,58);
   border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
   background-color: #fff;
   -webkit-animation: animation-0 0.1s linear;
   animation: animation-0 0.1s linear;
@@ -52,11 +54,13 @@ exports[`Cell renders dead cell 2`] = `
 }
 
 .emotion-0 {
-  cursor: pointer;
   width: 10px;
   height: 10px;
   border-right: 1px solid rgb(85,74,58);
   border-bottom: 1px solid rgb(85,74,58);
+  -webkit-flex: 0 0 10px;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
   background-color: #050505;
   -webkit-animation: animation-0 0.1s linear;
   animation: animation-0 0.1s linear;
