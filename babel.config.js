@@ -10,7 +10,7 @@ module.exports = {
       plugins: ["emotion"],
     },
     development: {
-      plugins: [["emotion", { sourceMap: true }]],
+      plugins: [["emotion", { sourceMap: true, cssPropOptimization: true }]],
     },
   },
 };

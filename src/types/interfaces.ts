@@ -14,3 +14,17 @@ export interface CellDrawnProps {
   x: number;
   y: number;
 }
+
+export interface DrawFieldProps {
+  fieldScheme: boolean[][];
+  cellClickHandler: (x: number, y: number) => void;
+}
+
+export interface GOLBoardProps {
+  sizeX: number;
+  sizeY: number;
+}
+
+export interface GOLBoardState {
+  fieldScheme: boolean[][];
+}

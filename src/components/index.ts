@@ -1,1 +1,1 @@
-export * from "./DrawField";
+export * from "./GOLBoard";
