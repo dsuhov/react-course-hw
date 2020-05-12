@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/core";
-import { CellDrawnProps } from "types/interfaces";
+
+interface CellDrawnProps {
+  isAlive: boolean;
+  x: number;
+  y: number;
+}
 
 const borderColor = "rgb(85, 74, 58)";
 const dyingBg = "background-color: rgb(250, 42, 12)";

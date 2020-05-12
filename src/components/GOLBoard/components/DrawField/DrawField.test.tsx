@@ -4,15 +4,21 @@ import renderer from "react-test-renderer";
 import { DrawField } from "./DrawField";
 import { Cell } from "./components";
 
-describe("Field that draw cells", () => {
-  const emptyFieldScheme =
-    Array.from({ length: 5 }).map(() =>
-      Array.from({ length: 4 }).fill(false)
-    ) as boolean[][];
+function newTestScheme(
+  xSize: number,
+  ySize: number,
+  value: boolean
+): boolean[][] {
+  return (
+    Array.from({ length: ySize }).map(() =>
+      Array.from({ length: xSize }).fill(value)
+    ) as boolean[][]
+  );
+}
 
-  const fullFieldScheme =
-    Array.from({ length: 5 }).map(() => Array.from({ length: 4 }).fill(true)) as
-    boolean[][];
+describe("Field that draw cells", () => {
+  const emptyFieldScheme = newTestScheme(4, 5, false);
+  const fullFieldScheme = newTestScheme(4, 5, true);
 
   it("reders full empty field", () => {
     expect(

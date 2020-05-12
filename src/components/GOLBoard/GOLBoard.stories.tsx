@@ -2,7 +2,7 @@ import React from "react";
 import { withKnobs, number } from "@storybook/addon-knobs";
 import { GOLBoard } from "./GOLBoard";
 export default {
-  title: "Real Field",
+  title: "GOL Board",
   decorators: [withKnobs],
 };
 

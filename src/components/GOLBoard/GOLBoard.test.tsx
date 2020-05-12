@@ -4,10 +4,10 @@ import { GOLBoard } from "./GOLBoard";
 import { DrawField } from "./components";
 
 describe("Test GOLBoard Component", () => {
-  it("GOLBoard passes DrawField correct props", () => {
-    const x = 2;
-    const y = 3;
+  const x = 2;
+  const y = 3;
 
+  it("GOLBoard passes DrawField correct props", () => {
     const golBoard = mount(<GOLBoard sizeX={x} sizeY={y} />);
     const boradField = golBoard.find(DrawField);
 
@@ -22,9 +22,6 @@ describe("Test GOLBoard Component", () => {
   });
 
   it("Check GOLBoard renders field after click on cells", () => {
-    const x = 2;
-    const y = 3;
-
     const golBoard = mount(<GOLBoard sizeX={x} sizeY={y} />);
 
     golBoard.find(DrawField).props().cellClickHandler(0, 0);
@@ -42,9 +39,6 @@ describe("Test GOLBoard Component", () => {
   });
 
   it("Check correctness of field size change", () => {
-    const x = 2;
-    const y = 3;
-
     const golBoard = mount(<GOLBoard sizeX={x} sizeY={y} />);
 
     golBoard.find(DrawField).props().cellClickHandler(0, 0);

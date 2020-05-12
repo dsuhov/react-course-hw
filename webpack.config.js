@@ -10,6 +10,7 @@ module.exports = {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
     alias: {
       types: path.resolve(__dirname, "src/types"),
+      config: path.resolve(__dirname, "src/config"),
     },
   },
   output: {
