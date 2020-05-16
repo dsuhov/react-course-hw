@@ -1,8 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
-import { defaultConfig } from "config/defaultConfig";
 import { GOLBoard } from "./components";
 
-const { x, y } = defaultConfig.size;
+const defaultparams = {
+  sizeX: 15,
+  sizeY: 10,
+  fullness: 20,
+};
 
-render(<GOLBoard sizeX={x} sizeY={y} />, document.getElementById("root"));
+render(<GOLBoard {...defaultparams} />, document.getElementById("root"));
