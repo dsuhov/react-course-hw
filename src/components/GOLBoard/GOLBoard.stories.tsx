@@ -7,5 +7,9 @@ export default {
 };
 
 export const realField = () => (
-  <GOLBoard sizeX={number("X Size", 2)} sizeY={number("Y Size", 3)} />
+  <GOLBoard
+    sizeX={number("X Size", 15)}
+    fullness={25}
+    sizeY={number("Y Size", 12)}
+  />
 );
