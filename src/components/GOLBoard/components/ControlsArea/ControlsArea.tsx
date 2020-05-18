@@ -61,12 +61,12 @@ export class ControlsArea extends React.Component<ControlsAreaProps, {}> {
               onClick={cmdBtnHadler}
               disabled={status !== "running"}
             >
-              Faster
+              Slower
             </Button>
             <Button
               name={status === "paused" ? "resume" : "pause"}
               onClick={cmdBtnHadler}
-              disabled={status !== "running"}
+              disabled={false}
             >
               {status === "paused" ? "Resume" : "Pause"}
             </Button>
@@ -84,13 +84,34 @@ export class ControlsArea extends React.Component<ControlsAreaProps, {}> {
           <ControlsLine>
             <FieldSize>
               <Label>Field Size:</Label>
-              <NumberInput type="number" min={2} max={200} name="xSize" />
+              <NumberInput
+                type="number"
+                min={2}
+                max={200}
+                name="xSize"
+                ref={this.xSizeInput}
+                required
+              />
               <span> x </span>
-              <NumberInput type="number" min={2} max={200} name="ySize" />
+              <NumberInput
+                type="number"
+                min={2}
+                max={200}
+                name="ySize"
+                ref={this.ySizeInput}
+                required
+              />
             </FieldSize>
             <div>
               <Label>Fullness:</Label>
-              <NumberInput type="number" name="fullness" min={10} max={100} />
+              <NumberInput
+                type="number"
+                name="fullness"
+                min={10}
+                max={100}
+                ref={this.fullnessInput}
+                required
+              />
               <span> %</span>
             </div>
           </ControlsLine>

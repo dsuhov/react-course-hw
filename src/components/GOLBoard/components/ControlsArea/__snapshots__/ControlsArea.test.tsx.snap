@@ -151,7 +151,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
         name="slower"
         onClick={[MockFunction]}
       >
-        Faster
+        Slower
       </button>
       <button
         className="emotion-0"
@@ -190,6 +190,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
           max={200}
           min={2}
           name="xSize"
+          required={true}
           type="number"
         />
         <span>
@@ -200,6 +201,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
           max={200}
           min={2}
           name="ySize"
+          required={true}
           type="number"
         />
       </div>
@@ -214,6 +216,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
           max={100}
           min={10}
           name="fullness"
+          required={true}
           type="number"
         />
         <span>
