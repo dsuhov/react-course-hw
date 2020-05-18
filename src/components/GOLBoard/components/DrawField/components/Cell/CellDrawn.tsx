@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { css, keyframes } from "@emotion/core";
+import { css } from "@emotion/core";
 
 interface CellDrawnProps {
   isAlive: boolean;
@@ -8,8 +8,6 @@ interface CellDrawnProps {
 }
 
 const borderColor = "rgb(85, 74, 58)";
-const dyingBg = "background-color: rgb(250, 42, 12)";
-const revivingBg = "background-color: rgb(59, 197, 0)";
 const deadBg = "background-color: #fff";
 const aliveBg = "background-color: #050505";
 
