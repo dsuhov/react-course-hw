@@ -66,6 +66,10 @@ exports[`Field that draw cells reders full alive field 1`] = `
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   width: 45px;
+  margin: 0 auto;
+  border: 5px solid #cdc392;
+  box-shadow: 0 0 10px #304c89;
+  border-radius: 2px;
 }
 
 .emotion-0 {
@@ -321,6 +325,10 @@ exports[`Field that draw cells reders full empty field 1`] = `
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   width: 45px;
+  margin: 0 auto;
+  border: 5px solid #cdc392;
+  box-shadow: 0 0 10px #304c89;
+  border-radius: 2px;
 }
 
 .emotion-0 {

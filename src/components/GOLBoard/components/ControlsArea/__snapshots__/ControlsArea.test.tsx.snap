@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
+.emotion-15 {
+  padding-top: 14px;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-4 > *:not(:last-child) {
+  margin-right: 8px;
+}
+
+.emotion-0 {
+  display: block;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 2px solid #9eb7e5;
+  border-radius: 4px;
+  color: #304c89;
+  background: #f2efe4;
+  font-weight: 700;
+  -webkit-letter-spacing: 0.06em;
+  -moz-letter-spacing: 0.06em;
+  -ms-letter-spacing: 0.06em;
+  letter-spacing: 0.06em;
+}
+
+.emotion-0:hover {
+  box-shadow: 0 0 6px #9eb7e5;
+  background: #f6f5ea;
+}
+
+.emotion-3 {
+  display: block;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 2px solid #9eb7e5;
+  border-radius: 4px;
+  color: #304c89;
+  background: #f2efe4;
+  font-weight: 700;
+  -webkit-letter-spacing: 0.06em;
+  -moz-letter-spacing: 0.06em;
+  -ms-letter-spacing: 0.06em;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.emotion-3:hover {
+  box-shadow: 0 0 6px #9eb7e5;
+  background: #f6f5ea;
+}
+
+.emotion-9 {
+  margin-right: 20px;
+}
+
+.emotion-6 {
+  margin-bottom: 6px;
+}
+
+.emotion-7 {
+  padding: 5px 10px;
+  border: 2px solid #9eb7e5;
+  border-radius: 4px;
+  max-width: 80px;
+}
+
+.emotion-7:focus {
+  outline: 1px solid #648de5;
+  box-shadow: 0 0 5px #648de5;
+}
+
+.emotion-13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-13 button {
+  padding: 8px 12px;
+  font-size: 1.1em;
+  display: block;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid #9eb7e5;
+  border-radius: 4px;
+  color: #304c89;
+  background: #f2efe4;
+  font-weight: 700;
+  -webkit-letter-spacing: 0.06em;
+  -moz-letter-spacing: 0.06em;
+  -ms-letter-spacing: 0.06em;
+  letter-spacing: 0.06em;
+}
+
+.emotion-13 button:hover {
+  box-shadow: 0 0 6px #9eb7e5;
+  background: #f6f5ea;
+}
+
+<div
+  className="emotion-15"
+>
+  <div
+    className="emotion-5"
+  >
+    <div
+      className="emotion-4"
+    >
+      <button
+        className="emotion-0"
+        disabled={false}
+        name="faster"
+        onClick={[MockFunction]}
+      >
+        Faster
+      </button>
+      <button
+        className="emotion-0"
+        disabled={false}
+        name="slower"
+        onClick={[MockFunction]}
+      >
+        Faster
+      </button>
+      <button
+        className="emotion-0"
+        disabled={false}
+        name="pause"
+        onClick={[MockFunction]}
+      >
+        Pause
+      </button>
+      <button
+        className="emotion-3"
+        disabled={true}
+        name="reset"
+        onClick={[MockFunction]}
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="emotion-5"
+    >
+      <div
+        className="emotion-9"
+      >
+        <div
+          className="emotion-6"
+        >
+          Field Size:
+        </div>
+        <input
+          className="emotion-7"
+          max={200}
+          min={2}
+          name="xSize"
+          type="number"
+        />
+        <span>
+           x 
+        </span>
+        <input
+          className="emotion-7"
+          max={200}
+          min={2}
+          name="ySize"
+          type="number"
+        />
+      </div>
+      <div>
+        <div
+          className="emotion-6"
+        >
+          Fullness:
+        </div>
+        <input
+          className="emotion-7"
+          max={100}
+          min={10}
+          name="fullness"
+          type="number"
+        />
+        <span>
+           %
+        </span>
+      </div>
+    </div>
+    <div
+      className="emotion-5"
+    >
+      <div
+        className="emotion-13"
+      >
+        <button
+          disabled={true}
+          name="start"
+          type="submit"
+        >
+          Start
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+`;

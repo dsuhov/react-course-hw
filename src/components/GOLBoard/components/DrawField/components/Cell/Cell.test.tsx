@@ -25,7 +25,7 @@ describe("Cell", () => {
     ).toMatchSnapshot();
   });
 
-  it("renders dead cell", () => {
+  it("renders alive cell", () => {
     expect(
       renderer
         .create(<Cell {...aliveCellProps} clickHandler={jest.fn()} />)
