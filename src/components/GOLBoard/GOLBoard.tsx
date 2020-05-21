@@ -11,17 +11,11 @@ import { fillField } from "./utils/fillField";
 interface GOLBoardProps {
   sizeX: number;
   sizeY: number;
-  fullness: number;
 }
 
 interface GOLBoardState {
   fieldScheme: boolean[][];
-  boardState: {
-    status: "running" | "paused" | "stopped";
-    interval: number;
-    size: [number, number];
-    fullness: number;
-  };
+  status: "running" | "paused" | "stopped";
 }
 
 export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
@@ -32,15 +26,10 @@ export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
 
     this.state = {
       fieldScheme: clearField([this.props.sizeX, this.props.sizeY]),
-      boardState: {
-        status: "stopped",
-        interval: 500,
-        size: [this.props.sizeX, this.props.sizeY],
-        fullness: this.props.fullness,
-      },
+      status: "stopped",
     };
 
-    this.ticker = new Ticker(this.updateField);
+    this.ticker = new Ticker(this.updateField, 200);
   }
 
   cellClickHandler = (x: number, y: number): void => {
@@ -61,9 +50,7 @@ export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
     });
   };
 
-  ctrlBtnHadler = (evt: React.MouseEvent): void => {
-    const cmd = (evt.target as HTMLButtonElement).name;
-
+  ctrlBtnHadler = (cmd: string): void => {
     switch (cmd) {
       case "pause":
         this.stopGame();
@@ -83,61 +70,36 @@ export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
     }
   };
 
-  ctrlFormHandler = (params: {
-    size: [number, number];
-    fullness: number;
-  }): void => {
-    this.setState((prevState) => {
-      const newField = fillField(
-        params.fullness,
-        params.size[0],
-        params.size[1]
-      );
+  ctrlFormHandler = (size: [number, number], fullness: number): void => {
+    const newField = fillField(fullness, size[0], size[1]);
 
-      return {
+    this.setState(
+      {
         fieldScheme: newField,
-        boardState: {
-          ...prevState.boardState,
-          size: [params.size[0], params.size[1]],
-          fullness: params.fullness,
-        },
-      };
-    });
-
-    this.startGame();
+        status: "running",
+      },
+      () => {
+        this.ticker.start();
+      }
+    );
   };
 
   changeSpeed(cmd: "faster" | "slower"): void {
     this.ticker.stop();
+    let speed = this.ticker.getSpeed();
 
     if (cmd === "faster") {
-      this.setState((prevState) => {
-        const currSpeed = prevState.boardState.interval;
+      speed -= 200;
 
-        return {
-          boardState: {
-            ...prevState.boardState,
-            interval: currSpeed >= 200 ? currSpeed - 50 : currSpeed,
-          },
-        };
-      });
-
-      this.ticker.start(this.state.boardState.interval);
+      if (speed < 200) {
+        speed = 200;
+      }
     }
-
     if (cmd === "slower") {
-      this.setState((prevState) => {
-        const currSpeed = prevState.boardState.interval;
-        return {
-          boardState: {
-            ...prevState.boardState,
-            interval: currSpeed + 50,
-          },
-        };
-      });
-
-      this.ticker.start(this.state.boardState.interval);
+      speed += 200;
     }
+
+    this.ticker.start(speed);
   }
 
   updateField = () => {
@@ -150,29 +112,11 @@ export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
     });
   };
 
-  startGame() {
-    this.setState((prevState) => {
-      return {
-        boardState: {
-          ...prevState.boardState,
-          status: "running",
-        },
-      };
-    });
-
-    this.ticker.start(this.state.boardState.interval);
-  }
-
   stopGame() {
     this.ticker.stop();
 
-    this.setState((prevState) => {
-      return {
-        boardState: {
-          ...prevState.boardState,
-          status: "paused",
-        },
-      };
+    this.setState({
+      status: "paused",
     });
   }
 
@@ -180,48 +124,46 @@ export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
     this.ticker.stop();
 
     this.setState((prevState) => {
-      const newField = clearField([
-        prevState.boardState.size[0],
-        prevState.boardState.size[1],
-      ]);
+      const size: [number, number] = [
+        prevState.fieldScheme[0].length,
+        prevState.fieldScheme.length,
+      ];
+
+      const newField = clearField([size[0], size[1]]);
 
       return {
         fieldScheme: newField,
-        boardState: {
-          ...prevState.boardState,
-          status: "stopped",
-        },
+        status: "stopped",
       };
     });
   }
 
   resumeGame() {
-    this.ticker.start(this.state.boardState.interval);
+    this.ticker.start();
 
-    this.setState((prevState) => {
-      return {
-        boardState: {
-          ...prevState.boardState,
-          status: "running",
-        },
-      };
+    this.setState({
+      status: "running",
     });
   }
 
   render() {
+    const size: [number, number] = [
+      this.state.fieldScheme[0].length,
+      this.state.fieldScheme.length,
+    ];
+
+    const speed = this.ticker.getSpeed();
+
     return (
       <GOLContainer>
         <DrawField
           fieldScheme={this.state.fieldScheme}
           cellClickHandler={this.cellClickHandler}
         />
-        <StatusLine
-          size={this.state.boardState.size}
-          interval={this.state.boardState.interval}
-        />
+        <StatusLine size={size} interval={speed} />
         <ControlsArea
-          status={this.state.boardState.status}
-          cmdBtnHadler={this.ctrlBtnHadler}
+          status={this.state.status}
+          cmdBtnHandler={this.ctrlBtnHadler}
           cmdFormHandler={this.ctrlFormHandler}
         />
       </GOLContainer>
