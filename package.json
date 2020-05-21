@@ -21,6 +21,7 @@
       "pre-push": "npm run check"
     }
   },
+  "typings": "./src/gol-types.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dsuhov/react-course-hw.git"
