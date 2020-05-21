@@ -58,7 +58,7 @@ export class ControlsArea extends React.PureComponent<ControlsAreaProps> {
               Slower
             </Button>
             <Button
-              name={status === "paused" ? "resume" : "pause"}
+              name={status === "paused" ? "resume" : "pause"} 
               onClick={this.btnClickHandler}
               disabled={status === "stopped"}
             >
