@@ -1,62 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Field that draw cells reders full alive field 1`] = `
-@keyframes animation-0 {
-  0% {
-    background-color: #fff;
-  }
-
-  50% {
-    background-color: rgb(59,197,0);
-  }
-
-  100% {
-    background-color: #050505;
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    background-color: #fff;
-  }
-
-  50% {
-    background-color: rgb(59,197,0);
-  }
-
-  100% {
-    background-color: #050505;
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    background-color: #fff;
-  }
-
-  50% {
-    background-color: rgb(59,197,0);
-  }
-
-  100% {
-    background-color: #050505;
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    background-color: #fff;
-  }
-
-  50% {
-    background-color: rgb(59,197,0);
-  }
-
-  100% {
-    background-color: #050505;
-  }
-}
-
 .emotion-20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -81,8 +25,6 @@ exports[`Field that draw cells reders full alive field 1`] = `
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
   background-color: #050505;
-  -webkit-animation: animation-0 0.1s linear;
-  animation: animation-0 0.1s linear;
   border-left: 1px solid rgb(85,74,58);
   border-top: 1px solid rgb(85,74,58);
 }
@@ -96,8 +38,6 @@ exports[`Field that draw cells reders full alive field 1`] = `
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
   background-color: #050505;
-  -webkit-animation: animation-0 0.1s linear;
-  animation: animation-0 0.1s linear;
   border-left: none;
   border-top: 1px solid rgb(85,74,58);
 }
@@ -111,8 +51,6 @@ exports[`Field that draw cells reders full alive field 1`] = `
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
   background-color: #050505;
-  -webkit-animation: animation-0 0.1s linear;
-  animation: animation-0 0.1s linear;
   border-left: 1px solid rgb(85,74,58);
   border-top: none;
 }
@@ -126,8 +64,6 @@ exports[`Field that draw cells reders full alive field 1`] = `
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
   background-color: #050505;
-  -webkit-animation: animation-0 0.1s linear;
-  animation: animation-0 0.1s linear;
   border-left: none;
   border-top: none;
 }
@@ -260,62 +196,6 @@ exports[`Field that draw cells reders full alive field 1`] = `
 `;
 
 exports[`Field that draw cells reders full empty field 1`] = `
-@keyframes animation-0 {
-  0% {
-    background-color: #050505;
-  }
-
-  50% {
-    background-color: rgb(250,42,12);
-  }
-
-  100% {
-    background-color: #fff;
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    background-color: #050505;
-  }
-
-  50% {
-    background-color: rgb(250,42,12);
-  }
-
-  100% {
-    background-color: #fff;
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    background-color: #050505;
-  }
-
-  50% {
-    background-color: rgb(250,42,12);
-  }
-
-  100% {
-    background-color: #fff;
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    background-color: #050505;
-  }
-
-  50% {
-    background-color: rgb(250,42,12);
-  }
-
-  100% {
-    background-color: #fff;
-  }
-}
-
 .emotion-20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -340,8 +220,6 @@ exports[`Field that draw cells reders full empty field 1`] = `
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
   background-color: #fff;
-  -webkit-animation: animation-0 0.1s linear;
-  animation: animation-0 0.1s linear;
   border-left: 1px solid rgb(85,74,58);
   border-top: 1px solid rgb(85,74,58);
 }
@@ -355,8 +233,6 @@ exports[`Field that draw cells reders full empty field 1`] = `
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
   background-color: #fff;
-  -webkit-animation: animation-0 0.1s linear;
-  animation: animation-0 0.1s linear;
   border-left: none;
   border-top: 1px solid rgb(85,74,58);
 }
@@ -370,8 +246,6 @@ exports[`Field that draw cells reders full empty field 1`] = `
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
   background-color: #fff;
-  -webkit-animation: animation-0 0.1s linear;
-  animation: animation-0 0.1s linear;
   border-left: 1px solid rgb(85,74,58);
   border-top: none;
 }
@@ -385,8 +259,6 @@ exports[`Field that draw cells reders full empty field 1`] = `
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
   background-color: #fff;
-  -webkit-animation: animation-0 0.1s linear;
-  animation: animation-0 0.1s linear;
   border-left: none;
   border-top: none;
 }

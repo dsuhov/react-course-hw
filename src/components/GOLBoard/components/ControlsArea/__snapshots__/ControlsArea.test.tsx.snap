@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
-.emotion-15 {
+.emotion-16 {
   padding-top: 14px;
 }
 
@@ -92,7 +92,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
   box-shadow: 0 0 5px #648de5;
 }
 
-.emotion-13 {
+.emotion-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -106,7 +106,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
   align-items: center;
 }
 
-.emotion-13 button {
+.emotion-14 button {
   padding: 8px 12px;
   font-size: 1.1em;
   display: block;
@@ -123,13 +123,13 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
   letter-spacing: 0.06em;
 }
 
-.emotion-13 button:hover {
+.emotion-14 button:hover {
   box-shadow: 0 0 6px #9eb7e5;
   background: #f6f5ea;
 }
 
 <div
-  className="emotion-15"
+  className="emotion-16"
 >
   <div
     className="emotion-5"
@@ -141,7 +141,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
         className="emotion-0"
         disabled={false}
         name="faster"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         Faster
       </button>
@@ -149,15 +149,15 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
         className="emotion-0"
         disabled={false}
         name="slower"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
-        Faster
+        Slower
       </button>
       <button
         className="emotion-0"
         disabled={false}
         name="pause"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         Pause
       </button>
@@ -165,7 +165,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
         className="emotion-3"
         disabled={true}
         name="reset"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         Reset
       </button>
@@ -190,6 +190,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
           max={200}
           min={2}
           name="xSize"
+          required={true}
           type="number"
         />
         <span>
@@ -200,6 +201,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
           max={200}
           min={2}
           name="ySize"
+          required={true}
           type="number"
         />
       </div>
@@ -214,6 +216,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
           max={100}
           min={10}
           name="fullness"
+          required={true}
           type="number"
         />
         <span>
@@ -225,9 +228,10 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
       className="emotion-5"
     >
       <div
-        className="emotion-13"
+        className="emotion-14"
       >
         <button
+          className="emotion-3"
           disabled={true}
           name="start"
           type="submit"

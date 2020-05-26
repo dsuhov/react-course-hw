@@ -10,7 +10,7 @@ describe("<ControlsArea /> tests", () => {
         .create(
           <ControlsArea
             status="running"
-            cmdBtnHadler={jest.fn()}
+            cmdBtnHandler={jest.fn()}
             cmdFormHandler={jest.fn()}
           />
         )
@@ -20,12 +20,12 @@ describe("<ControlsArea /> tests", () => {
 
   it("Check control buttons functionality, game running", () => {
     const btns = ["faster", "slower", "pause"];
-    const cmdBtnHadler = jest.fn((evt) => evt.target.name);
+    const cmdBtnHandler = jest.fn();
 
     const area = mount(
       <ControlsArea
         status="running"
-        cmdBtnHadler={cmdBtnHadler}
+        cmdBtnHandler={cmdBtnHandler}
         cmdFormHandler={jest.fn()}
       />
     );
@@ -34,37 +34,34 @@ describe("<ControlsArea /> tests", () => {
       area.find(`button[name="${btn}"]`).simulate("click");
     });
 
-    expect(cmdBtnHadler.mock.calls.length).toBe(btns.length);
+    expect(cmdBtnHandler).toHaveBeenCalledTimes(btns.length);
 
     btns.forEach((btn, i) => {
-      expect(cmdBtnHadler.mock.results[i].value).toBe(btn);
+      expect(cmdBtnHandler.mock.calls[i][0]).toBe(btn);
     });
 
-    expect(area.find(`button[name="${"reset"}"]`).getDOMNode()).toHaveProperty(
-      "disabled"
-    );
+    expect(
+      area.find(`button[name="${"reset"}"]`).prop("disabled")
+    ).toBeTruthy();
   });
 
   it("Check control buttons functionality, game paused", () => {
-    const btns = ["faster", "slower", "resume"];
-    const cmdBtnHadler = jest.fn((evt) => evt.target.name);
+    const cmdBtnHandler = jest.fn();
 
     const area = mount(
       <ControlsArea
         status="paused"
-        cmdBtnHadler={cmdBtnHadler}
+        cmdBtnHandler={cmdBtnHandler}
         cmdFormHandler={jest.fn()}
       />
     );
 
-    btns.forEach((btn) => {
-      expect(area.find(`button[name="${btn}"]`).getDOMNode()).toHaveProperty(
-        "disabled"
-      );
+    ["faster", "slower"].forEach((btn) => {
+      expect(area.find(`button[name="${btn}"]`).prop("disabled")).toBeTruthy();
     });
 
     area.find(`button[name="reset"]`).simulate("click");
-    expect(cmdBtnHadler.mock.results[0].value).toBe("reset");
+    expect(cmdBtnHandler.mock.calls[0][0]).toBe("reset");
   });
 
   it("Check control buttons functionality, game stopped", () => {
@@ -73,15 +70,13 @@ describe("<ControlsArea /> tests", () => {
     const area = mount(
       <ControlsArea
         status="stopped"
-        cmdBtnHadler={jest.fn()}
+        cmdBtnHandler={jest.fn()}
         cmdFormHandler={jest.fn()}
       />
     );
 
     btns.forEach((btn) => {
-      expect(area.find(`button[name="${btn}"]`).getDOMNode()).toHaveProperty(
-        "disabled"
-      );
+      expect(area.find(`button[name="${btn}"]`).prop("disabled")).toBeTruthy();
     });
   });
 });

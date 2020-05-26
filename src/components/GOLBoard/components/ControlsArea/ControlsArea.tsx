@@ -12,21 +12,14 @@ import {
 
 interface ControlsAreaProps {
   status: "running" | "paused" | "stopped";
-  cmdBtnHadler: (evt: React.MouseEvent) => void;
-  cmdFormHandler: (params: {
-    size: [number, number];
-    fullness: number;
-  }) => void;
+  cmdBtnHandler: (cmd: string) => void;
+  cmdFormHandler: (size: [number, number], fullness: number) => void;
 }
 
-export class ControlsArea extends React.Component<ControlsAreaProps, {}> {
+export class ControlsArea extends React.PureComponent<ControlsAreaProps> {
   xSizeInput = React.createRef<HTMLInputElement>();
   ySizeInput = React.createRef<HTMLInputElement>();
   fullnessInput = React.createRef<HTMLInputElement>();
-
-  shouldComponentUpdate(nextProps: ControlsAreaProps) {
-    return this.props.status !== nextProps.status;
-  }
 
   handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();
@@ -35,15 +28,16 @@ export class ControlsArea extends React.Component<ControlsAreaProps, {}> {
     const sizeY = this.ySizeInput.current!.value;
     const fullness = this.fullnessInput.current!.value;
 
-    this.props.cmdFormHandler({
-      size: [+sizeX, +sizeY],
-      fullness: +fullness,
-    });
+    this.props.cmdFormHandler([+sizeX, +sizeY], +fullness);
+  };
+
+  btnClickHandler = (evt: React.MouseEvent<HTMLButtonElement>) => {
+    const btnElName = evt.currentTarget.name;
+    this.props.cmdBtnHandler(btnElName);
   };
 
   render() {
     const status = this.props.status;
-    const cmdBtnHadler = this.props.cmdBtnHadler;
 
     return (
       <ControlsWrapper>
@@ -51,28 +45,28 @@ export class ControlsArea extends React.Component<ControlsAreaProps, {}> {
           <Buttons>
             <Button
               name="faster"
-              onClick={cmdBtnHadler}
+              onClick={this.btnClickHandler}
               disabled={status !== "running"}
             >
               Faster
             </Button>
             <Button
               name="slower"
-              onClick={cmdBtnHadler}
+              onClick={this.btnClickHandler}
               disabled={status !== "running"}
             >
               Slower
             </Button>
             <Button
-              name={status === "paused" ? "resume" : "pause"}
-              onClick={cmdBtnHadler}
-              disabled={false}
+              name={status === "paused" ? "resume" : "pause"} 
+              onClick={this.btnClickHandler}
+              disabled={status === "stopped"}
             >
               {status === "paused" ? "Resume" : "Pause"}
             </Button>
             <Button
               name="reset"
-              onClick={cmdBtnHadler}
+              onClick={this.btnClickHandler}
               disabled={status !== "paused"}
             >
               Reset
@@ -118,13 +112,13 @@ export class ControlsArea extends React.Component<ControlsAreaProps, {}> {
 
           <ControlsLine>
             <StartBlock>
-              <button
+              <Button
                 type="submit"
                 name="start"
                 disabled={status === "running" || status === "paused"}
               >
                 Start
-              </button>
+              </Button>
             </StartBlock>
           </ControlsLine>
         </form>

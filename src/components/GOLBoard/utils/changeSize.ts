@@ -10,13 +10,13 @@ export function changeSize(
       shiftY < 0
         ? oldScheme.slice(0, oldScheme.length - shiftY * -1)
         : [
-            ...oldScheme.map((row) => [...row]),
+            ...oldScheme,
             ...new Array(shiftY).fill(
               new Array(oldScheme[0].length).fill(false)
             ),
           ];
   } else {
-    newScheme = [...oldScheme.map((row) => [...row])];
+    newScheme = oldScheme;
   }
 
   if (shiftX !== 0) {
