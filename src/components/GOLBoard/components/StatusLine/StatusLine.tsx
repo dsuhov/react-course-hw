@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusLineWrapper, StatusSize } from "./styled";
+import { StatusLineWrapper, StatusSize, GenerationStatus } from "./styled";
 
 interface StatusLineProps {
   size: [number, number];
@@ -24,6 +24,9 @@ export const StatusLine = React.memo<StatusLineProps>(({ size, interval }) => {
       <div>
         Tick Interval: <b>{interval}</b> ms
       </div>
+      <GenerationStatus>
+        Generation: <b>5</b>
+      </GenerationStatus>
     </StatusLineWrapper>
   );
 }, areEqual);

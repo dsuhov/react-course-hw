@@ -11,3 +11,7 @@ export const StatusLineWrapper = styled.div`
 export const StatusSize = styled.div`
   margin-right: 20px;
 `;
+
+export const GenerationStatus = styled.div`
+  margin-left: 10px;
+`;
