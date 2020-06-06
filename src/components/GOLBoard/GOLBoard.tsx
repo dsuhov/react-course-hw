@@ -4,50 +4,36 @@ import { GOLContainer } from "./styled";
 import { StatusLine } from "./components";
 import { ControlsArea } from "./components";
 import { Ticker } from "./utils/Ticker";
-import { getUpdatedField } from "./utils/getUpdatedField";
-import { clearField } from "./utils/clearField";
-import { fillField } from "./utils/fillField";
+
+import { connect } from "react-redux";
+import {
+  updateField,
+  clearFieldAct,
+  updateStatus,
+  fillField,
+  cellClick,
+} from "@/rdx/actions/actions";
 
 interface GOLBoardProps {
-  sizeX: number;
-  sizeY: number;
-}
-
-interface GOLBoardState {
-  fieldScheme: boolean[][];
   status: "running" | "paused" | "stopped";
+  fieldScheme: FieldScheme;
+  updateField: () => void;
+  updateStatus: (status: string) => void;
+  clearFieldAct: () => void;
+  fillField: (size: [number, number], fullness: number) => void;
+  cellClick: (coords: CellCorrds) => void;
 }
 
-export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
+export class RawGOLBoard extends Component<GOLBoardProps, {}> {
   private ticker: Ticker;
 
   constructor(props: GOLBoardProps) {
     super(props);
-
-    this.state = {
-      fieldScheme: clearField([this.props.sizeX, this.props.sizeY]),
-      status: "stopped",
-    };
-
-    this.ticker = new Ticker(this.updateField, 200);
+    this.ticker = new Ticker(this.updateField);
   }
 
   cellClickHandler = (x: number, y: number): void => {
-    const isXValid = x >= 0 && x < this.state.fieldScheme[0].length;
-    const isYValid = y >= 0 && y < this.state.fieldScheme.length;
-    const areCoordinatesValid = isXValid && isYValid;
-    if (!areCoordinatesValid) {
-      return;
-    }
-
-    this.setState((prevState) => {
-      const newField = prevState.fieldScheme.map((row) => [...row]);
-      newField[y][x] = !prevState.fieldScheme[y][x];
-
-      return {
-        fieldScheme: newField,
-      };
-    });
+    this.props.cellClick({ x, y });
   };
 
   ctrlBtnHadler = (cmd: string): void => {
@@ -71,85 +57,46 @@ export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
   };
 
   ctrlFormHandler = (size: [number, number], fullness: number): void => {
-    const newField = fillField(fullness, size[0], size[1]);
-
-    this.setState(
-      {
-        fieldScheme: newField,
-        status: "running",
-      },
-      () => {
-        this.ticker.start();
-      }
-    );
+    this.props.fillField(size, fullness);
+    this.ticker.start();
+    this.props.updateStatus("running");
   };
 
   changeSpeed(cmd: "faster" | "slower"): void {
-    this.ticker.stop();
-    let speed = this.ticker.getSpeed();
-
     if (cmd === "faster") {
-      speed -= 200;
-
-      if (speed < 200) {
-        speed = 200;
-      }
+      this.ticker.setFaster();
     }
     if (cmd === "slower") {
-      speed += 200;
+      this.ticker.setSlower();
     }
-
-    this.ticker.start(speed);
   }
 
   updateField = () => {
-    this.setState((prevState) => {
-      const newField = getUpdatedField(prevState.fieldScheme);
-
-      return {
-        fieldScheme: newField,
-      };
-    });
+    this.props.updateField();
   };
 
   stopGame() {
     this.ticker.stop();
-
-    this.setState({
-      status: "paused",
-    });
+    this.props.updateStatus("paused");
   }
 
   clearGame() {
     this.ticker.stop();
 
-    this.setState((prevState) => {
-      const size: [number, number] = [
-        prevState.fieldScheme[0].length,
-        prevState.fieldScheme.length,
-      ];
-
-      const newField = clearField([size[0], size[1]]);
-
-      return {
-        fieldScheme: newField,
-        status: "stopped",
-      };
-    });
+    this.props.clearFieldAct();
+    this.props.updateStatus("stopped");
   }
 
   resumeGame() {
     this.ticker.start();
 
-    this.setState({
-      status: "running",
-    });
+    this.props.updateStatus("running");
   }
 
   render() {
     const size: [number, number] = [
-      this.state.fieldScheme[0].length,
-      this.state.fieldScheme.length,
+      this.props.fieldScheme[0].length,
+      this.props.fieldScheme.length,
     ];
 
     const speed = this.ticker.getSpeed();
@@ -157,12 +104,12 @@ export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
     return (
       <GOLContainer>
         <DrawField
-          fieldScheme={this.state.fieldScheme}
+          fieldScheme={this.props.fieldScheme}
           cellClickHandler={this.cellClickHandler}
         />
         <StatusLine size={size} interval={speed} />
         <ControlsArea
-          status={this.state.status}
+          status={this.props.status}
           cmdBtnHandler={this.ctrlBtnHadler}
           cmdFormHandler={this.ctrlFormHandler}
         />
@@ -170,3 +117,23 @@ export class GOLBoard extends Component<GOLBoardProps, GOLBoardState> {
     );
   }
 }
+
+const mapStateToProps = (state: any) => {
+  return {
+    fieldScheme: state.golField,
+    status: state.gameStatus.status,
+  };
+};
+
+const mapDispatchToProps = {
+  updateField,
+  updateStatus,
+  clearFieldAct,
+  fillField,
+  cellClick,
+};
+
+export const GOLBoard = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RawGOLBoard);
