@@ -1,6 +1,9 @@
 import React, { FC } from "react";
 import styled from "@emotion/styled";
 import { Cell } from "./components";
+import { useSelector } from "react-redux";
+
+const getFieldScheme = (state: GOLState): FieldScheme => state.golField;
 
 interface DrawFieldProps {
   fieldScheme: boolean[][];
@@ -21,21 +24,14 @@ const FieldWrapper = styled.div<FieldWrapperProps>`
   border-radius: 2px;
 `;
 
-export const DrawField: FC<DrawFieldProps> = ({
-  fieldScheme,
-  cellClickHandler,
-}) => {
+export const DrawField: FC<{}> = () => {
+  const fieldScheme = useSelector(getFieldScheme);
+
   return (
     <FieldWrapper size={fieldScheme[0].length}>
       {fieldScheme.map((row, y) => [
         ...row.map((status: boolean, x) => (
-          <Cell
-            key={`${x}_${y}`}
-            x={x}
-            y={y}
-            clickHandler={cellClickHandler}
-            isAlive={status}
-          />
+          <Cell key={`${x}_${y}`} x={x} y={y} isAlive={status} />
         )),
       ])}
     </FieldWrapper>

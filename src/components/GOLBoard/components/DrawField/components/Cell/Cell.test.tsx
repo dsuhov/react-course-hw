@@ -1,60 +1,63 @@
 import React from "react";
 import { mount } from "enzyme";
 import renderer from "react-test-renderer";
-
-import { Cell } from "./Cell";
+import { Provider } from "react-redux";
+import configureStore, { MockStoreEnhanced } from "redux-mock-store";
+import { Cell, CellProps, RawCell } from "./Cell";
+import { cellClick } from "@/rdx/actions/actions";
 
 const deadCellProps = {
   x: 5,
   y: 5,
   isAlive: false,
+  cellClick: jest.fn(),
 };
 
 const aliveCellProps = {
   x: 5,
   y: 5,
   isAlive: true,
+  cellClick: jest.fn(),
 };
 
+const mockStore = configureStore<CellProps>([]);
+
+function getCell<S>(props: typeof deadCellProps, store: MockStoreEnhanced<S>) {
+  const comp = mount(
+    <Provider store={store}>
+      <Cell {...deadCellProps} />
+    </Provider>
+  );
+
+  return comp;
+}
+
 describe("Cell", () => {
+  let store: MockStoreEnhanced<CellProps>;
+
+  beforeEach(() => {
+    store = mockStore();
+  });
+
   it("renders dead cell", () => {
     expect(
-      renderer
-        .create(<Cell {...deadCellProps} clickHandler={jest.fn()} />)
-        .toJSON()
+      renderer.create(<RawCell {...deadCellProps} />).toJSON()
     ).toMatchSnapshot();
   });
 
   it("renders alive cell", () => {
     expect(
-      renderer
-        .create(<Cell {...aliveCellProps} clickHandler={jest.fn()} />)
-        .toJSON()
+      renderer.create(<RawCell {...aliveCellProps} />).toJSON()
     ).toMatchSnapshot();
   });
 
-  it("calls сlick callback on click by dead cell", () => {
-    const onClick = jest.fn();
-    const wrapper = mount(<Cell {...deadCellProps} clickHandler={onClick} />);
-    wrapper.simulate("click");
-    expect(onClick).toHaveBeenCalled();
-  });
+  it("check dispatch onClick", () => {
+    const { x, y } = deadCellProps;
 
-  it("calls сlick callback on click by alive cell", () => {
-    const onClick = jest.fn();
-    const wrapper = mount(<Cell {...aliveCellProps} clickHandler={onClick} />);
-    wrapper.simulate("click");
-    expect(onClick).toHaveBeenCalled();
-  });
+    const wrapper = getCell<CellProps>(deadCellProps, store);
 
-  it("calls click callback with passed x, y params", () => {
-    const onClick = jest.fn();
-    const x = 12;
-    const y = 14;
-    const wrapper = mount(
-      <Cell clickHandler={onClick} x={x} y={y} isAlive={true} />
-    );
     wrapper.simulate("click");
-    expect(onClick).toHaveBeenCalledWith(x, y);
+
+    expect(store.getActions()[0]).toEqual(cellClick({ x, y }));
   });
 });

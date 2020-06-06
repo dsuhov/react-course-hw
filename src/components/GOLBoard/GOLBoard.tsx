@@ -103,10 +103,7 @@ export class RawGOLBoard extends Component<GOLBoardProps, {}> {
 
     return (
       <GOLContainer>
-        <DrawField
-          fieldScheme={this.props.fieldScheme}
-          cellClickHandler={this.cellClickHandler}
-        />
+        <DrawField />
         <StatusLine size={size} interval={speed} />
         <ControlsArea
           status={this.props.status}
