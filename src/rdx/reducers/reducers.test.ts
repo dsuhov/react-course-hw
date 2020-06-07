@@ -13,7 +13,6 @@ jest.mock("@/utils/clearField", () => ({
   clearField: jest.fn(() => [[]]),
 }));
 
-
 describe("Test reducers", () => {
   const baseState: CombinedState<GOLState> = {
     golField: [
@@ -25,6 +24,8 @@ describe("Test reducers", () => {
     ],
     gameStatus: {
       status: "stopped",
+      interval: 200,
+      generation: 0,
     },
   };
 
@@ -98,5 +99,21 @@ describe("Test reducers", () => {
 
     expect(action).toEqual(actRetVal);
     expect(result.golField[4][2]).toBe(true);
+  });
+
+  it("update interval action test", () => {
+    const action = actCreators.updateInterval(500);
+    const result = reducer(baseState, action);
+    const expRes = 500;
+
+    expect(result.gameStatus.interval).toBe(expRes);
+  });
+
+  it("increment generation action", () => {
+    const action = actCreators.incGen();
+    const result = reducer(baseState, action);
+    const expRes = 1;
+
+    expect(result.gameStatus.generation).toBe(expRes);
   });
 });

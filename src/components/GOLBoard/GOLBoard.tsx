@@ -10,18 +10,21 @@ import {
   updateField,
   clearFieldAct,
   updateStatus,
+  updateInterval,
+  UpdIntAction,
   fillField,
   cellClick,
 } from "@/rdx/actions/actions";
 
 interface GOLBoardProps {
-  status: "running" | "paused" | "stopped";
+  status: GameStatus;
   fieldScheme: FieldScheme;
   updateField: () => void;
-  updateStatus: (status: string) => void;
+  updateStatus: (status: GameStatus) => void;
   clearFieldAct: () => void;
   fillField: (size: [number, number], fullness: number) => void;
   cellClick: (coords: CellCorrds) => void;
+  updateInterval: (interval: number) => UpdIntAction;
 }
 
 export class RawGOLBoard extends Component<GOLBoardProps, {}> {
@@ -65,9 +68,11 @@ export class RawGOLBoard extends Component<GOLBoardProps, {}> {
   changeSpeed(cmd: "faster" | "slower"): void {
     if (cmd === "faster") {
       this.ticker.setFaster();
+      this.props.updateInterval(this.ticker.getSpeed());
     }
     if (cmd === "slower") {
       this.ticker.setSlower();
+      this.props.updateInterval(this.ticker.getSpeed());
     }
   }
 
@@ -94,17 +99,10 @@ export class RawGOLBoard extends Component<GOLBoardProps, {}> {
   }
 
   render() {
-    const size: [number, number] = [
-      this.props.fieldScheme[0].length,
-      this.props.fieldScheme.length,
-    ];
-
-    const speed = this.ticker.getSpeed();
-
     return (
       <GOLContainer>
         <DrawField />
-        <StatusLine size={size} interval={speed} />
+        <StatusLine />
         <ControlsArea
           status={this.props.status}
           cmdBtnHandler={this.ctrlBtnHadler}
@@ -128,6 +126,7 @@ const mapDispatchToProps = {
   clearFieldAct,
   fillField,
   cellClick,
+  updateInterval,
 };
 
 export const GOLBoard = connect(

@@ -1,34 +1,24 @@
 import React from "react";
 import { StatusLineWrapper, StatusSize, GenerationStatus } from "./styled";
+import { useSelector } from "react-redux";
+import { statusSelector } from "@/rdx/selectors/statusSelector";
 
-interface StatusLineProps {
-  size: [number, number];
-  interval: number;
-}
+export const StatusLine: React.FC<{}> = () => {
+  const gameStatus = useSelector(statusSelector);
 
-function areEqual(prevProps: StatusLineProps, nextProps: StatusLineProps) {
-  const isEqInterval = prevProps.interval === nextProps.interval;
-  const isSizeEqual =
-    prevProps.size[0] === nextProps.size[0] &&
-    prevProps.size[1] === nextProps.size[1];
-
-  return isEqInterval && isSizeEqual;
-}
-
-export const StatusLine = React.memo<StatusLineProps>(({ size, interval }) => {
   return (
     <StatusLineWrapper>
       <StatusSize>
-        Size: {size[0]} x {size[1]}
+        Size: {gameStatus.size[0]} x {gameStatus.size[1]}
       </StatusSize>
       <div>
-        Tick Interval: <b>{interval}</b> ms
+        Tick Interval: <b>{gameStatus.interval}</b> ms
       </div>
       <GenerationStatus>
-        Generation: <b>5</b>
+        Generation: <b>{gameStatus.generation}</b>
       </GenerationStatus>
     </StatusLineWrapper>
   );
-}, areEqual);
+};
 
 StatusLine.displayName = "StatusLine";

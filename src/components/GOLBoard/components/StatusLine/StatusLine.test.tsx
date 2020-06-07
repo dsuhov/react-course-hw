@@ -1,19 +1,26 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { StatusLine } from "./StatusLine";
+import { useSelector } from "react-redux";
+
+jest.mock("react-redux", () => ({
+  useSelector: jest.fn(),
+}));
 
 describe("<StatusLine />  tests", () => {
-  const defaultParams: {
-    size: [number, number];
-    interval: number;
-  } = {
-    size: [25, 31],
-    interval: 548,
+  const fakeState: GOLState = {
+    golField: [[]],
+    gameStatus: {
+      status: "stopped",
+      interval: 400,
+      generation: 5,
+    },
   };
 
   it("<StatusLine /> snapshot", () => {
-    expect(
-      renderer.create(<StatusLine {...defaultParams} />).toJSON()
-    ).toMatchSnapshot();
+    (useSelector as jest.Mock).mockImplementation((callback) => {
+      return callback(fakeState);
+    });
+    expect(renderer.create(<StatusLine />).toJSON()).toMatchSnapshot();
   });
 });

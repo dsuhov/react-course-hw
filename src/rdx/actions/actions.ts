@@ -1,17 +1,44 @@
 import * as actionType from "./actionTypes";
 
+export interface UpdIntAction {
+  type: typeof actionType.UPDATE_INTERVAL;
+  interval: number;
+}
+
+export interface UpdStatusAction {
+  type: typeof actionType.UPDATE_STATUS;
+  status: GameStatus;
+}
+
+export interface IncGenAction {
+  type: typeof actionType.INC_GEN;
+}
+
+export type StatusActions = UpdIntAction | UpdStatusAction | IncGenAction;
+
+export const incGen = (): IncGenAction => {
+  return {
+    type: actionType.INC_GEN,
+  };
+};
+
 export const updateField = () => {
   return {
     type: actionType.UPDATE_FIELD,
   };
 };
 
-export const updateStatus = (status: string) => {
+export const updateStatus = (status: GameStatus): UpdStatusAction => {
   return {
     type: actionType.UPDATE_STATUS,
-    payload: {
-      status: status,
-    },
+    status,
+  };
+};
+
+export const updateInterval = (interval: number): UpdIntAction => {
+  return {
+    type: actionType.UPDATE_INTERVAL,
+    interval: interval,
   };
 };
 
