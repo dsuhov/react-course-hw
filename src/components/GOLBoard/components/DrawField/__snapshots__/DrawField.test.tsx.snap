@@ -24,7 +24,7 @@ exports[`Field that draw cells reders full alive field 1`] = `
   -webkit-flex: 0 0 10px;
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
-  background-color: #050505;
+  background-color: #fff;
   border-left: 1px solid rgb(85,74,58);
   border-top: 1px solid rgb(85,74,58);
 }
@@ -37,7 +37,7 @@ exports[`Field that draw cells reders full alive field 1`] = `
   -webkit-flex: 0 0 10px;
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
-  background-color: #050505;
+  background-color: #fff;
   border-left: none;
   border-top: 1px solid rgb(85,74,58);
 }
@@ -50,7 +50,7 @@ exports[`Field that draw cells reders full alive field 1`] = `
   -webkit-flex: 0 0 10px;
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
-  background-color: #050505;
+  background-color: #fff;
   border-left: 1px solid rgb(85,74,58);
   border-top: none;
 }
@@ -63,7 +63,7 @@ exports[`Field that draw cells reders full alive field 1`] = `
   -webkit-flex: 0 0 10px;
   -ms-flex: 0 0 10px;
   flex: 0 0 10px;
-  background-color: #050505;
+  background-color: #fff;
   border-left: none;
   border-top: none;
 }
