@@ -5,11 +5,6 @@ import { useSelector } from "react-redux";
 
 const getFieldScheme = (state: GOLState): FieldScheme => state.golField;
 
-interface DrawFieldProps {
-  fieldScheme: boolean[][];
-  cellClickHandler: (x: number, y: number) => void;
-}
-
 interface FieldWrapperProps {
   size: number;
 }
