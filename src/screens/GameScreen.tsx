@@ -45,7 +45,7 @@ export const GameScreen = authorizedOnlyHoc(() => {
         Hello, <span>{name}</span>!
         <LogoutBtn onClick={logoutHandler}>Logout</LogoutBtn>
       </HelloLine>
-      <GOLBoard sizeX={10} sizeY={10} />
+      <GOLBoard />
     </>
   );
 });

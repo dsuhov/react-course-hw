@@ -25,3 +25,8 @@ type GOLStatus = {
 };
 
 type GameStatus = "running" | "paused" | "stopped";
+
+type ClrFieldAct = {
+  fullness: number;
+  size: number[];
+};
