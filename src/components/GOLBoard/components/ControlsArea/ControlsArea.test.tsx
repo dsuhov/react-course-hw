@@ -226,4 +226,27 @@ describe("<ControlsArea /> tests", () => {
       gameStatusActions.updateStatus("running"),
     ]);
   });
+
+  it("game paused, reset", () => {
+    const store = setupStore({
+      status: "paused",
+      interval: baseInterval,
+      generation: 0,
+    });
+
+    const area = mount(
+      <Provider store={store}>
+        <ControlsArea />
+      </Provider>
+    );
+
+    area.find("button[name=\"reset\"]").simulate("click");
+
+    expect(mockstop).toHaveBeenCalledTimes(1);
+
+    expect(store.getActions()).toEqual([
+      gameFieldActions.clearField(),
+      gameStatusActions.updateStatus("stopped"),
+    ]);
+  });
 });

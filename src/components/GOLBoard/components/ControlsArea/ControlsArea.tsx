@@ -15,8 +15,6 @@ import { gameFieldActions } from "@/rdx/gameField/gameFieldSlice";
 import { gameStatusActions } from "@/rdx/gameStatus/gameStatusSlice";
 import { Ticker } from "./Ticker";
 
-jest.mock("./Ticker.ts");
-
 const mapDispatchToProps = {
   updateField: gameFieldActions.updateField,
   clearField: gameFieldActions.clearField,
