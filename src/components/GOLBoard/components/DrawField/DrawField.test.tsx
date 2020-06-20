@@ -1,21 +1,24 @@
 import React from "react";
 import { mount, ReactWrapper } from "enzyme";
 import renderer from "react-test-renderer";
-import { DrawField } from "./DrawField";
+import { DrawField, getFieldScheme } from "./DrawField";
 import { Cell } from "./components";
 import { Provider } from "react-redux";
-import { golField as reducer } from "@/rdx/reducers/golField";
-import { createStore, Reducer } from "redux";
+
+import {initialState } from "@/rdx/gameField/gameFieldSlice";
+import configureStore from "redux-mock-store";
+
+const mockStore = configureStore([]);
 
 function newTestScheme(
   xSize: number,
   ySize: number,
   value: boolean
-): boolean[][] {
+): FieldScheme {
   return (
     Array.from({ length: ySize }).map(() =>
       Array.from({ length: xSize }).fill(value)
-    ) as boolean[][]
+    ) as FieldScheme
   );
 }
 
@@ -25,17 +28,9 @@ function newTestScheme(
  * passes correct data to them.
  */
 
-const setupWrapper = (
-  reducer: Reducer<FieldScheme>,
-  initState: FieldScheme
-): ReactWrapper => {
-  const rootState =
-    {
-      golField: initState,
-      gameStatus: { status: "stopped" },
-    } as any;
+const setupWrapper = (initState: FieldScheme = initialState): ReactWrapper => {
 
-  const newStore = createStore(reducer, rootState);
+  const newStore = mockStore({ gameField: initState });
   const field = mount(
     <Provider store={newStore}>
       <DrawField />
@@ -50,17 +45,17 @@ describe("Field that draw cells", () => {
   const fullFieldScheme = newTestScheme(4, 5, true) as FieldScheme;
 
   it("reders full empty field", () => {
-    const wrapper = setupWrapper(reducer, emptyFieldScheme);
+    const wrapper = setupWrapper(emptyFieldScheme);
     expect(renderer.create(wrapper.get(0)).toJSON()).toMatchSnapshot();
   });
 
   it("reders full alive field", () => {
-    const wrapper = setupWrapper(reducer, emptyFieldScheme);
+    const wrapper = setupWrapper(emptyFieldScheme);
     expect(renderer.create(wrapper.get(0)).toJSON()).toMatchSnapshot();
   });
 
   it("renders empty field 4x5", () => {
-    const wrapper = setupWrapper(reducer, emptyFieldScheme);
+    const wrapper = setupWrapper(emptyFieldScheme);
 
     const fieldSize = emptyFieldScheme[0].length * emptyFieldScheme.length;
 
@@ -71,7 +66,7 @@ describe("Field that draw cells", () => {
   });
 
   it("renders full field 4x5", () => {
-    const field = setupWrapper(reducer, fullFieldScheme);
+    const field = setupWrapper(fullFieldScheme);
 
     const fieldSize = fullFieldScheme[0].length * fullFieldScheme.length;
 
@@ -98,7 +93,7 @@ describe("Field that draw cells", () => {
       [0, 0]
     );
 
-    const field = setupWrapper(reducer, partialFilledField);
+    const field = setupWrapper(partialFilledField);
 
     expect(
       field.findWhere((el) => el.is(Cell) && el.props().isAlive === false)

@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import {
   ControlsWrapper,
   ControlsLine,
@@ -9,32 +10,113 @@ import {
   NumberInput,
   Button,
 } from "./styled";
+import { RootState } from "@/rdx/store";
+import { gameFieldActions } from "@/rdx/gameField/gameFieldSlice";
+import { gameStatusActions } from "@/rdx/gameStatus/gameStatusSlice";
+import { Ticker } from "./Ticker";
 
-interface ControlsAreaProps {
-  status: "running" | "paused" | "stopped";
-  cmdBtnHandler: (cmd: string) => void;
-  cmdFormHandler: (size: [number, number], fullness: number) => void;
-}
+jest.mock("./Ticker.ts");
 
-export class ControlsArea extends React.PureComponent<ControlsAreaProps> {
+const mapDispatchToProps = {
+  updateField: gameFieldActions.updateField,
+  clearField: gameFieldActions.clearField,
+  fillField: gameFieldActions.fillFieldAct,
+  cellClick: gameFieldActions.cellClick,
+  updateStatus: gameStatusActions.updateStatus,
+  updateInterval: gameStatusActions.updateInterval,
+  incGen: gameStatusActions.incGen,
+};
+
+const mapStateToProps = (state: RootState) => {
+  return {
+    status: state.gameStatus.status,
+    interval: state.gameStatus.interval,
+  }
+};
+
+type ControlsAreaProps = typeof mapDispatchToProps & ReturnType<typeof mapStateToProps>;
+
+export class RawControlsArea extends React.PureComponent<ControlsAreaProps> {
   xSizeInput = React.createRef<HTMLInputElement>();
   ySizeInput = React.createRef<HTMLInputElement>();
   fullnessInput = React.createRef<HTMLInputElement>();
+
+  private ticker: Ticker;
+
+  constructor(props: ControlsAreaProps) {
+    super(props);
+    this.ticker = new Ticker(this.updateField);
+  }
 
   handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();
 
     const sizeX = this.xSizeInput.current!.value;
     const sizeY = this.ySizeInput.current!.value;
-    const fullness = this.fullnessInput.current!.value;
+    const fullness = +this.fullnessInput.current!.value;
 
-    this.props.cmdFormHandler([+sizeX, +sizeY], +fullness);
+    this.props.fillField({
+      fullness,
+      size: [+sizeX, +sizeY],
+    });
+    this.props.updateStatus("running");
+    this.ticker.setSpeed(this.props.interval);
+    this.ticker.start();
   };
 
   btnClickHandler = (evt: React.MouseEvent<HTMLButtonElement>) => {
     const btnElName = evt.currentTarget.name;
-    this.props.cmdBtnHandler(btnElName);
+    
+    switch (btnElName) {
+      case "pause":
+        this.stopGame();
+        break;
+      case "resume":
+        this.resumeGame();
+        break;
+      case "reset":
+        this.clearGame();
+        break;
+      case "faster":
+        this.changeSpeed("faster");
+        break;
+      case "slower":
+        this.changeSpeed("slower");
+        break;
+    }
   };
+
+  changeSpeed(cmd: "faster" | "slower"): void {
+    if (cmd === "faster") {
+      this.ticker.setFaster();
+      this.props.updateInterval(this.ticker.getSpeed());
+    }
+    if (cmd === "slower") {
+      this.ticker.setSlower();
+      this.props.updateInterval(this.ticker.getSpeed());
+    }
+  }
+
+  updateField = () => {
+    this.props.updateField();
+    this.props.incGen();
+  };
+
+  stopGame() {
+    this.ticker.stop();
+    this.props.updateStatus("paused");
+  }
+
+  clearGame() {
+    this.ticker.stop();
+    this.props.clearField();
+    this.props.updateStatus("stopped");
+  }
+
+  resumeGame() {
+    this.ticker.start();
+    this.props.updateStatus("running");
+  }
 
   render() {
     const status = this.props.status;
@@ -126,3 +208,8 @@ export class ControlsArea extends React.PureComponent<ControlsAreaProps> {
     );
   }
 }
+
+export const ControlsArea = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RawControlsArea);

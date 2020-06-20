@@ -2,14 +2,15 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { StatusLine } from "./StatusLine";
 import { useSelector } from "react-redux";
+import { RootState } from "@/rdx/store";
 
 jest.mock("react-redux", () => ({
   useSelector: jest.fn(),
 }));
 
 describe("<StatusLine />  tests", () => {
-  const fakeState: GOLState = {
-    golField: [[]],
+  const fakeState: RootState = {
+    gameField: [[]],
     gameStatus: {
       status: "stopped",
       interval: 400,

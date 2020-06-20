@@ -1,9 +1,19 @@
-import { createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import createSagaMiddleware from 'redux-saga'
+import { gameFieldSlice } from "@/rdx/gameField/gameFieldSlice";
+import { gameStatusSlice } from "@/rdx/gameStatus/gameStatusSlice";
+import { watchUpdateField } from "@/components";
 
-import { reducer } from "./reducers";
+const sagaMiddleware =  createSagaMiddleware()
 
-export const store = createStore(
-  reducer,
-  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-);
+export const store = configureStore({
+  reducer: {
+    gameField: gameFieldSlice.reducer,
+    gameStatus: gameStatusSlice.reducer,
+  },
+  middleware: [sagaMiddleware],
+});
+
+sagaMiddleware.run(watchUpdateField);
+
+export type RootState = ReturnType<typeof store.getState>;

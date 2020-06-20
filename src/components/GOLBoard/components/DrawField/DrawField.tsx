@@ -2,8 +2,9 @@ import React, { FC } from "react";
 import styled from "@emotion/styled";
 import { Cell } from "./components";
 import { useSelector } from "react-redux";
+import { RootState } from "@/rdx/store";
 
-const getFieldScheme = (state: GOLState): FieldScheme => state.golField;
+export const getFieldScheme = (state: RootState): FieldScheme => state.gameField;
 
 interface FieldWrapperProps {
   size: number;

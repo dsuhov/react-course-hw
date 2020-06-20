@@ -42,32 +42,11 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
   -moz-letter-spacing: 0.06em;
   -ms-letter-spacing: 0.06em;
   letter-spacing: 0.06em;
-}
-
-.emotion-0:hover {
-  box-shadow: 0 0 6px #9eb7e5;
-  background: #f6f5ea;
-}
-
-.emotion-3 {
-  display: block;
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: 5px 10px;
-  border: 2px solid #9eb7e5;
-  border-radius: 4px;
-  color: #304c89;
-  background: #f2efe4;
-  font-weight: 700;
-  -webkit-letter-spacing: 0.06em;
-  -moz-letter-spacing: 0.06em;
-  -ms-letter-spacing: 0.06em;
-  letter-spacing: 0.06em;
   opacity: 0.6;
   pointer-events: none;
 }
 
-.emotion-3:hover {
+.emotion-0:hover {
   box-shadow: 0 0 6px #9eb7e5;
   background: #f6f5ea;
 }
@@ -128,6 +107,27 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
   background: #f6f5ea;
 }
 
+.emotion-13 {
+  display: block;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 2px solid #9eb7e5;
+  border-radius: 4px;
+  color: #304c89;
+  background: #f2efe4;
+  font-weight: 700;
+  -webkit-letter-spacing: 0.06em;
+  -moz-letter-spacing: 0.06em;
+  -ms-letter-spacing: 0.06em;
+  letter-spacing: 0.06em;
+}
+
+.emotion-13:hover {
+  box-shadow: 0 0 6px #9eb7e5;
+  background: #f6f5ea;
+}
+
 <div
   className="emotion-16"
 >
@@ -139,7 +139,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
     >
       <button
         className="emotion-0"
-        disabled={false}
+        disabled={true}
         name="faster"
         onClick={[Function]}
       >
@@ -147,7 +147,7 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
       </button>
       <button
         className="emotion-0"
-        disabled={false}
+        disabled={true}
         name="slower"
         onClick={[Function]}
       >
@@ -155,14 +155,14 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
       </button>
       <button
         className="emotion-0"
-        disabled={false}
+        disabled={true}
         name="pause"
         onClick={[Function]}
       >
         Pause
       </button>
       <button
-        className="emotion-3"
+        className="emotion-0"
         disabled={true}
         name="reset"
         onClick={[Function]}
@@ -231,8 +231,8 @@ exports[`<ControlsArea /> tests Snapshot for <ControlsArea /> 1`] = `
         className="emotion-14"
       >
         <button
-          className="emotion-3"
-          disabled={true}
+          className="emotion-13"
+          disabled={false}
           name="start"
           type="submit"
         >

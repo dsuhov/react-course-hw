@@ -6,7 +6,7 @@ type GOLState = {
 };
 
 type StatusState = {
-  status: string;
+  status: GameStatus;
   interval: number;
   generation: number;
 };
