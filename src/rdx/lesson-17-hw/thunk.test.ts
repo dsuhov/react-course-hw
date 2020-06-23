@@ -33,7 +33,7 @@ describe("myThunkMiddleware test", () => {
 
     expect(mockLog).toBeCalledTimes(1);
     expect(mockDispatch).toBeCalledWith(sampleAction());
-    expect(mockNext).toBeCalledTimes(1);
+    expect(mockNext).toBeCalledTimes(0);
     
   });
 
