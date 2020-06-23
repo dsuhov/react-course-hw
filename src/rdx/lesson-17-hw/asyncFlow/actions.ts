@@ -9,5 +9,5 @@ export const requestFailure = createAction<ReqError, "REQUEST_FAILED">(
 );
 
 export const requestSuccess = createAction<ReqData, "REQUEST_SUCCESS">(
-  "REQUEST_SUCCESS"
+  "REQUEST_SUCCESS",
 );

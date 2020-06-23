@@ -18,8 +18,7 @@ export const myThunkMiddleware: Middleware = ({ dispatch }) => (
 ) => (action) => {
   if (typeof action === "function") {
     console.log("It's a function action for thunk flow: ", action);
-     action(dispatch);
-     return next(action);
+    return action(dispatch);
   }
 
   return next(action);

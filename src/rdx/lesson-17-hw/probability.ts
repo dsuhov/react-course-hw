@@ -18,10 +18,10 @@ probablity это число от 0 до 1
 */
 import { Middleware, Action, Dispatch } from "redux";
 
-export type ActionProb = Action & { payload: { probablity: number } };
-
-export const probablity = () => (next: Dispatch) => (action: ActionProb) => {
-  if ("payload" in action && "probablity" in action.payload) {
+export const probablity = (): Middleware  => (next) => (action) => {
+  console.log(action);
+  
+  if (action.payload !== undefined && "probablity" in action.payload) {
     const randomNumber = Math.random();
 
     if (randomNumber < action.payload.probablity) {

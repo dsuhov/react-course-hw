@@ -12,7 +12,7 @@ describe("myThunkMiddleware test", () => {
 
   const sampleFuncAction = (): MyThunkAction => {
     return (dispatch) => {
-      dispatch(sampleAction());
+      return dispatch(sampleAction());
     };
   };
 
@@ -32,7 +32,7 @@ describe("myThunkMiddleware test", () => {
     preparedMiddleware(sampleFuncAction());
 
     expect(mockLog).toBeCalledTimes(1);
-    expect(mockDispatch).toBeCalledTimes(1);
+    expect(mockDispatch).toBeCalledWith(sampleAction());
     expect(mockNext).toBeCalledTimes(1);
     
   });
@@ -43,7 +43,7 @@ describe("myThunkMiddleware test", () => {
 
     expect(mockLog).toBeCalledTimes(0);
     expect(mockDispatch).toBeCalledTimes(0);
-    expect(mockNext).toBeCalledTimes(1);
+    expect(mockNext).toBeCalledWith(sampleAction());
   });
 
 });
