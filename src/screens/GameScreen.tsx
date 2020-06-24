@@ -37,7 +37,7 @@ export const GameScreen = authorizedOnlyHoc(() => {
   const logoutHandler = useCallback(async () => {
     await logout();
     history.replace(`/`);
-  }, []);
+  }, [history]);
 
   return (
     <>
