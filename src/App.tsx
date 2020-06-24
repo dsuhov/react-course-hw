@@ -10,6 +10,7 @@ import { GameScreen } from "@/screens/GameScreen";
 import { LoginScreen } from "@/screens/LoginScreen";
 import { Provider } from "react-redux";
 import { store } from "@/rdx/store";
+import { MiddlewareTest } from "@/screens/MiddlewareTest/MiddlewareTest";
 
 export const App: React.FC<{}> = () => (
   <Provider store={store}>
@@ -35,6 +36,7 @@ export const App: React.FC<{}> = () => (
         <Switch>
           <Route path="/game" component={GameScreen} />
           <Route path="/login" component={LoginScreen} />
+          <Route path="/midlleware-test" component={MiddlewareTest} />
           <Route path="/*" component={LoginScreen} />
         </Switch>
       </AppWrapper>

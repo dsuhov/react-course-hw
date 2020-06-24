@@ -1,9 +1,12 @@
 import React from "react";
-import { mount, ReactWrapper } from "enzyme";
+import { mount } from "enzyme";
 import { ControlsArea } from "./ControlsArea";
 import renderer from "react-test-renderer";
 
-import { defultStatusState, gameStatusActions } from "@/rdx/gameStatus/gameStatusSlice";
+import {
+  defultStatusState,
+  gameStatusActions,
+} from "@/rdx/gameStatus/gameStatusSlice";
 import { initialState, gameFieldActions } from "@/rdx/gameField/gameFieldSlice";
 
 import { Provider } from "react-redux";
@@ -33,15 +36,24 @@ jest.mock("./Ticker.ts", () => {
           clb();
           mockstart();
         },
-      }
-    })
-  }
+      };
+    }),
+  };
 });
 
 const mockStore = configureStore([]);
 
-function setupStore(preStateStatus: StatusState = defultStatusState, preStateField: FieldScheme = initialState) {
-  return  mockStore(Object.assign({}, { gameField: preStateField }, { gameStatus: preStateStatus }));
+function setupStore(
+  preStateStatus: StatusState = defultStatusState,
+  preStateField: FieldScheme = initialState
+) {
+  return mockStore(
+    Object.assign(
+      {},
+      { gameField: preStateField },
+      { gameStatus: preStateStatus }
+    )
+  );
 }
 
 describe("<ControlsArea /> tests", () => {
@@ -72,7 +84,7 @@ describe("<ControlsArea /> tests", () => {
   it("Game initialized, status shoud be stopped, some buttons disabled", () => {
     const store = setupStore();
     const btns = ["faster", "slower", "pause", "reset"];
-    
+
     const area = mount(
       <Provider store={store}>
         <ControlsArea />
@@ -96,7 +108,7 @@ describe("<ControlsArea /> tests", () => {
     });
     const btns = ["faster", "slower", "pause"];
     const disbldBtns = ["reset", "start"];
-    
+
     const area = mount(
       <Provider store={store}>
         <ControlsArea />
@@ -114,7 +126,7 @@ describe("<ControlsArea /> tests", () => {
 
       expect(btnWrapper.prop("disabled")).toBeTruthy();
     });
-  })
+  });
 
   it("game paused, check disabled btns", () => {
     const store = setupStore({
@@ -125,7 +137,7 @@ describe("<ControlsArea /> tests", () => {
 
     const btns = ["reset", "resume"];
     const disbldBtns = ["start", "faster", "slower"];
-    
+
     const area = mount(
       <Provider store={store}>
         <ControlsArea />
@@ -161,14 +173,13 @@ describe("<ControlsArea /> tests", () => {
 
     const status = "running";
 
-
-    area.find("button[name=\"start\"]").simulate("submit");
+    area.find('button[name="start"]').simulate("submit");
 
     expect(store.getActions()).toEqual([
       gameFieldActions.fillFieldAct(initData),
       gameStatusActions.updateStatus(status),
       gameFieldActions.updateField(),
-      gameStatusActions.incGen()
+      gameStatusActions.incGen(),
     ]);
 
     expect(mocksetSpeed).toHaveBeenCalledTimes(1);
@@ -188,19 +199,19 @@ describe("<ControlsArea /> tests", () => {
       </Provider>
     );
 
-      area.find("button[name=\"faster\"]").simulate("click");
-      area.find("button[name=\"slower\"]").simulate("click");
-      area.find("button[name=\"pause\"]").simulate("click");
+    area.find('button[name="faster"]').simulate("click");
+    area.find('button[name="slower"]').simulate("click");
+    area.find('button[name="pause"]').simulate("click");
 
-      expect(store.getActions()).toEqual([
-        gameStatusActions.updateInterval(baseInterval),
-        gameStatusActions.updateInterval(baseInterval),
-        gameStatusActions.updateStatus("paused"),
-      ]);
-      
-      expect(mocksetFaster).toHaveBeenCalledTimes(1);
-      expect(mocksetSlower).toHaveBeenCalledTimes(1);
-      expect(mockstop).toHaveBeenCalledTimes(1);
+    expect(store.getActions()).toEqual([
+      gameStatusActions.updateInterval(baseInterval),
+      gameStatusActions.updateInterval(baseInterval),
+      gameStatusActions.updateStatus("paused"),
+    ]);
+
+    expect(mocksetFaster).toHaveBeenCalledTimes(1);
+    expect(mocksetSlower).toHaveBeenCalledTimes(1);
+    expect(mockstop).toHaveBeenCalledTimes(1);
   });
 
   it("game paused, resume", () => {
@@ -216,7 +227,7 @@ describe("<ControlsArea /> tests", () => {
       </Provider>
     );
 
-    area.find("button[name=\"resume\"]").simulate("click");
+    area.find('button[name="resume"]').simulate("click");
 
     expect(mockstart).toHaveBeenCalledTimes(1);
 
@@ -240,7 +251,7 @@ describe("<ControlsArea /> tests", () => {
       </Provider>
     );
 
-    area.find("button[name=\"reset\"]").simulate("click");
+    area.find('button[name="reset"]').simulate("click");
 
     expect(mockstop).toHaveBeenCalledTimes(1);
 

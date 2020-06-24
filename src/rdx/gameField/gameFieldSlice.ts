@@ -30,13 +30,10 @@ export const gameFieldSlice = createSlice({
     updateField: (state) => getUpdatedField(state),
     clearField: (state) => clearField([state[0].length, state.length]),
     fillFieldAct: (_, { payload }: PayloadAction<ClrFieldAct>) => {
-      return fillField(
-        payload.fullness,
-        payload.size[0],
-        payload.size[1]
-        );
+      return fillField(payload.fullness, payload.size[0], payload.size[1]);
     },
-    cellClick: (state, { payload }:PayloadAction<CellCorrds> ) => getFieldCellClick(state, payload),
+    cellClick: (state, { payload }: PayloadAction<CellCorrds>) =>
+      getFieldCellClick(state, payload),
   },
 });
 

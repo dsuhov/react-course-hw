@@ -1,4 +1,4 @@
-import { Action } from "redux";
+import { AnyAction } from "redux";
 import { clearField } from "@/utils/clearField";
 import { getUpdatedField } from "@/utils/getUpdatedField";
 import { fillField } from "@/utils/fillField";
@@ -26,7 +26,7 @@ const getFieldCellClick = (
 
 export const golField = (
   state: FieldScheme = defaultFieldScheme,
-  action: Action & { payload?: any }
+  action: AnyAction
 ): FieldScheme => {
   switch (action.type) {
     case actionTypes.UPDATE_FIELD:

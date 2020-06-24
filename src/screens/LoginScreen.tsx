@@ -55,7 +55,7 @@ export const LoginScreen: React.FC = () => {
       await login(name);
       history.push(`/game`);
     },
-    [name]
+    [history, name]
   );
 
   useEffect(() => {

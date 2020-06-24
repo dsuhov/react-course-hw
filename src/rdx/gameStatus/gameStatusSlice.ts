@@ -10,7 +10,7 @@ export const gameStatusSlice = createSlice({
   name: "gameStatus",
   initialState: defultStatusState,
   reducers: {
-    updateStatus: (state, { payload }: PayloadAction<GameStatus> ) => {
+    updateStatus: (state, { payload }: PayloadAction<GameStatus>) => {
       state.status = payload;
     },
     updateInterval: (state, { payload }: PayloadAction<number>) => {
@@ -19,7 +19,7 @@ export const gameStatusSlice = createSlice({
     incGen: (state) => {
       state.generation += 1;
     },
-  }
+  },
 });
 
 export const gameStatusActions = gameStatusSlice.actions;
