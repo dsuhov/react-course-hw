@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import { Provider } from "react-redux";
 import configureStore, { MockStoreEnhanced } from "redux-mock-store";
 import { Cell, CellProps, RawCell } from "./Cell";
-import { cellClick } from "@/rdx/actions/actions";
+import { gameFieldActions } from "@/rdx/gameField/gameFieldSlice";
 
 const deadCellProps = {
   x: 5,
@@ -58,6 +58,6 @@ describe("Cell", () => {
 
     wrapper.simulate("click");
 
-    expect(store.getActions()[0]).toEqual(cellClick({ x, y }));
+    expect(store.getActions()[0]).toEqual(gameFieldActions.cellClick({ x, y }));
   });
 });
