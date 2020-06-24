@@ -1,4 +1,4 @@
-import { put, takeEvery, call } from "redux-saga/effects";
+import { put, takeEvery } from "redux-saga/effects";
 import { gameFieldActions } from "@/rdx/gameField/gameFieldSlice";
 import { gameStatusActions } from "@/rdx/gameStatus/gameStatusSlice";
 

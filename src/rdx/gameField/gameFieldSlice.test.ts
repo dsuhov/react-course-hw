@@ -58,8 +58,14 @@ describe("gameFieldSlice test", () => {
   });
 
   it("clear field", () => {
-    const baseState = [[true, false], [false, true]];
-    const resultState = [[false, false], [false, false]];
+    const baseState = [
+      [true, false],
+      [false, true],
+    ];
+    const resultState = [
+      [false, false],
+      [false, false],
+    ];
 
     const store = setupStore(baseState);
 
@@ -69,8 +75,14 @@ describe("gameFieldSlice test", () => {
   });
 
   it("cell click action test", () => {
-    const baseState = [[true, false], [false, true]];
-    const resultState = [[true, false], [false, false]];
+    const baseState = [
+      [true, false],
+      [false, true],
+    ];
+    const resultState = [
+      [true, false],
+      [false, false],
+    ];
 
     const store = setupStore(baseState);
 

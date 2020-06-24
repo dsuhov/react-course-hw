@@ -1,11 +1,11 @@
 import React from "react";
 import { mount, ReactWrapper } from "enzyme";
 import renderer from "react-test-renderer";
-import { DrawField, getFieldScheme } from "./DrawField";
+import { DrawField } from "./DrawField";
 import { Cell } from "./components";
 import { Provider } from "react-redux";
 
-import {initialState } from "@/rdx/gameField/gameFieldSlice";
+import { initialState } from "@/rdx/gameField/gameFieldSlice";
 import configureStore from "redux-mock-store";
 
 const mockStore = configureStore([]);
@@ -29,7 +29,6 @@ function newTestScheme(
  */
 
 const setupWrapper = (initState: FieldScheme = initialState): ReactWrapper => {
-
   const newStore = mockStore({ gameField: initState });
   const field = mount(
     <Provider store={newStore}>

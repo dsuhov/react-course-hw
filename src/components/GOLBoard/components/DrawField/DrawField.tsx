@@ -4,7 +4,8 @@ import { Cell } from "./components";
 import { useSelector } from "react-redux";
 import { RootState } from "@/rdx/store";
 
-export const getFieldScheme = (state: RootState): FieldScheme => state.gameField;
+export const getFieldScheme = (state: RootState): FieldScheme =>
+  state.gameField;
 
 interface FieldWrapperProps {
   size: number;

@@ -29,10 +29,11 @@ const mapStateToProps = (state: RootState) => {
   return {
     status: state.gameStatus.status,
     interval: state.gameStatus.interval,
-  }
+  };
 };
 
-type ControlsAreaProps = typeof mapDispatchToProps & ReturnType<typeof mapStateToProps>;
+type ControlsAreaProps = typeof mapDispatchToProps &
+  ReturnType<typeof mapStateToProps>;
 
 export class RawControlsArea extends React.PureComponent<ControlsAreaProps> {
   xSizeInput = React.createRef<HTMLInputElement>();
@@ -64,7 +65,7 @@ export class RawControlsArea extends React.PureComponent<ControlsAreaProps> {
 
   btnClickHandler = (evt: React.MouseEvent<HTMLButtonElement>) => {
     const btnElName = evt.currentTarget.name;
-    
+
     switch (btnElName) {
       case "pause":
         this.stopGame();
@@ -138,7 +139,7 @@ export class RawControlsArea extends React.PureComponent<ControlsAreaProps> {
               Slower
             </Button>
             <Button
-              name={status === "paused" ? "resume" : "pause"} 
+              name={status === "paused" ? "resume" : "pause"}
               onClick={this.btnClickHandler}
               disabled={status === "stopped"}
             >
