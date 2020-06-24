@@ -16,10 +16,11 @@ probablity это число от 0 до 1
 +1 балл за тесты
 
 */
-import { Middleware, Action, Dispatch } from "redux";
+import { Middleware, Action } from "redux";
 
-export const probablity = (): Middleware  => (next) => (action) => {
-  
+export type ActionProb = Action & { payload: { probablity: number } };
+
+export const probablity: Middleware = () => (next) => (action: ActionProb) => {
   if (action.payload !== undefined && "probablity" in action.payload) {
     const randomNumber = Math.random();
 

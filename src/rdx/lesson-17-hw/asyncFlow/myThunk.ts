@@ -9,6 +9,6 @@ export const getSwapiData = () => (dispatch: Dispatch) => {
 
   return fetch(url)
     .then((response) => response.json())
-    .then((data) => dispatch(actions.requestSuccess(data, 80)))
-    .catch((err) => dispatch(actions.requestFailure(err)));
+    .then((data) => dispatch(actions.requestSuccess(data)))
+    .catch((err) => dispatch(actions.requestFailure(err.message)));
 };

@@ -19,9 +19,9 @@ describe("asyncFlow test", () => {
   });
 
   it("dispatch REQUEST_START and REQUEST_SUCCESS", async () => {
-    window.fetch = jest.fn().mockResolvedValue(Promise.resolve({
+    window.fetch = jest.fn().mockResolvedValue({
       json: () => ({}),
-    }));
+    });
 
     await asyncAction(dispatch);
 
@@ -32,21 +32,21 @@ describe("asyncFlow test", () => {
   });
 
   it("dispatch REQUEST_START and REQUEST_SUCCESS", async () => {
-    const err = new Error();
-    window.fetch = jest.fn().mockResolvedValue(Promise.reject(err));
+    const err = new Error("Request failed");
+    window.fetch = jest.fn().mockRejectedValue(err);
 
     await asyncAction(dispatch);
 
     expect(dispatch.mock.calls).toEqual([
       [actions.requestStart()],
-      [actions.requestFailure(err)],
+      [actions.requestFailure(err.message)],
     ]);
   });
 
   it("state on success", async () => {
-    window.fetch = jest.fn().mockResolvedValue(Promise.resolve({
+    window.fetch = jest.fn().mockResolvedValue({
       json: () => fakeData,
-    }));
+    });
 
     const store = configureStore({
       reducer,
@@ -62,8 +62,8 @@ describe("asyncFlow test", () => {
   });
 
   it("state on failure", async () => {
-    const err = new Error();
-    window.fetch = jest.fn().mockResolvedValue(Promise.reject("Request failed"));
+    const err = new Error("Request failed");
+    window.fetch = jest.fn().mockRejectedValue(err);
 
     const store = configureStore({
       reducer,
@@ -73,7 +73,7 @@ describe("asyncFlow test", () => {
 
     expect(store.getState()).toEqual({
       isFetching: false,
-      error: "Request failed",
+      error: err.message,
       data: {},
     });
   });

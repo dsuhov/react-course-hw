@@ -1,27 +1,25 @@
 import { probablity, ActionProb } from "./probability";
 
-describe("Probability Middleware test", () => {
-  it("", () => {
-    const sampleProbablity = 0.2;
+it("Probability Middleware test", () => {
+  const sampleProbablity = 0.2;
 
-    const someAction: ActionProb = {
-      type: "DO_SMTH",
-      payload: {
-        probablity: sampleProbablity,
-      },
-    };
+  const someAction: ActionProb = {
+    type: "DO_SMTH",
+    payload: {
+      probablity: sampleProbablity,
+    },
+  };
 
-    const nextFn = jest.fn();
-    const mWare = probablity()(nextFn);
+  const nextFn = jest.fn();
+  const mWare = (probablity as any)()(nextFn as any);
 
-    const maxCount = 1000;
+  const maxCount = 10000;
 
-    for (let i = 0; i < maxCount; i++) {
-      mWare(someAction);
-    }
+  for (let i = 0; i < maxCount; i++) {
+    mWare(someAction);
+  }
 
-    const ratio = nextFn.mock.calls.length / maxCount;
+  const ratio = nextFn.mock.calls.length / maxCount;
 
-    expect(ratio).toBeCloseTo(sampleProbablity);
-  });
+  expect(ratio).toBeCloseTo(sampleProbablity, 1);
 });

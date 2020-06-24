@@ -1,9 +1,7 @@
-export type ReqData = Record<string, any>;
-
-export type ReqError = null | Error;
+export type ReqData = Record<string, string | number>;
 
 export type AFState = {
   isFetching: boolean;
-  error: ReqError;
+  error: string;
   data: ReqData;
 };

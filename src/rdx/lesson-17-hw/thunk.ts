@@ -13,11 +13,10 @@ src/lesson17/homework/thunk.ts
 */
 import { Middleware } from "redux";
 
-export const myThunkMiddleware: Middleware = ({ dispatch }) => (
-  next
-) => (action) => {
+export const myThunkMiddleware: Middleware = ({ dispatch }) => (next) => (
+  action
+) => {
   if (typeof action === "function") {
-    console.log("It's a function action for thunk flow: ", action);
     return action(dispatch);
   }
 
