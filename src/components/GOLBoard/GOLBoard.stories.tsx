@@ -1,11 +1,14 @@
 import React from "react";
-import { withKnobs, number } from "@storybook/addon-knobs";
 import { GOLBoard } from "./GOLBoard";
 export default {
   title: "GOL Board",
-  decorators: [withKnobs],
 };
 
+import { Provider } from "react-redux";
+import { store } from "@/rdx/store";
+
 export const realField = () => (
-  <GOLBoard sizeX={number("X Size", 30)} sizeY={number("Y Size", 26)} />
+  <Provider store={store}>
+    <GOLBoard />
+  </Provider>
 );

@@ -5,32 +5,33 @@ export default {
   title: "Controls Area",
 };
 
+import { Provider } from "react-redux";
+import { store } from "@/rdx/store";
+
 export const controlsAreaBoardRunning = () => {
   return (
-    <ControlsArea
-      status="running"
-      cmdBtnHadler={action("Cmd Handler Click")}
-      cmdFormHandler={action("Form Submitted")}
-    />
+    <Provider store={store}>
+      <ControlsArea />
+    </Provider>
   );
 };
 
-export const controlsAreaBoardPaused = () => {
-  return (
-    <ControlsArea
-      status="paused"
-      cmdBtnHadler={action("Cmd Handler Click")}
-      cmdFormHandler={action("Form Submitted")}
-    />
-  );
-};
+// export const controlsAreaBoardPaused = () => {
+//   return (
+//     <ControlsArea
+//       status="paused"
+//       cmdBtnHadler={action("Cmd Handler Click")}
+//       cmdFormHandler={action("Form Submitted")}
+//     />
+//   );
+// };
 
-export const controlsAreaBoardStopped = () => {
-  return (
-    <ControlsArea
-      status="stopped"
-      cmdBtnHadler={action("Cmd Handler Click")}
-      cmdFormHandler={action("Form Submitted")}
-    />
-  );
-};
+// export const controlsAreaBoardStopped = () => {
+//   return (
+//     <ControlsArea
+//       status="stopped"
+//       cmdBtnHadler={action("Cmd Handler Click")}
+//       cmdFormHandler={action("Form Submitted")}
+//     />
+//   );
+// };

@@ -7,47 +7,60 @@ export default {
   decorators: [withKnobs],
 };
 
+import { Provider } from "react-redux";
+import { store } from "@/rdx/store";
+
 export const nonAlive = () => (
-  <Cell
-    isAlive={boolean("Alive or Dead", false)}
-    cellClick={action("Cell clicked")}
-    x={number("x", 10)}
-    y={number("y", 23)}
-  />
+  <Provider store={store}>
+    <Cell
+      isAlive={boolean("Alive or Dead", false)}
+      cellClick={action("Cell clicked")}
+      x={number("x", 10)}
+      y={number("y", 23)}
+    />
+  </Provider>
 );
 
 export const nonAliveWithZeroX = () => (
-  <Cell
-    isAlive={boolean("Alive or Dead", false)}
-    cellClick={action("Cell clicked")}
-    x={number("x", 0)}
-    y={number("y", 23)}
-  />
+  <Provider store={store}>
+    <Cell
+      isAlive={boolean("Alive or Dead", false)}
+      cellClick={action("Cell clicked")}
+      x={number("x", 0)}
+      y={number("y", 23)}
+    />
+  </Provider>
 );
 
 export const nonAliveWithZeroY = () => (
-  <Cell
-    isAlive={boolean("Alive or Dead", false)}
-    cellClick={action("Cell clicked")}
-    x={number("x", 12)}
-    y={number("y", 0)}
-  />
+  <Provider store={store}>
+    <Cell
+      isAlive={boolean("Alive or Dead", false)}
+      cellClick={action("Cell clicked")}
+      x={number("x", 12)}
+      y={number("y", 0)}
+    />
+  </Provider>
 );
 
 export const nonAliveWithZeroXY = () => (
-  <Cell
-    isAlive={boolean("Alive or Dead", false)}
-    cellClick={action("Cell clicked")}
-    x={number("x", 0)}
-    y={number("y", 0)}
-  />
+  <Provider store={store}>
+    <Cell
+      isAlive={boolean("Alive or Dead", false)}
+      cellClick={action("Cell clicked")}
+      x={number("x", 0)}
+      y={number("y", 0)}
+    />
+  </Provider>
 );
 
 export const Alive = () => (
-  <Cell
-    isAlive={boolean("Alive or Dead", true)}
-    cellClick={action("Cell clicked")}
-    x={number("x", 10)}
-    y={number("y", 23)}
-  />
+  <Provider store={store}>
+    <Cell
+      isAlive={boolean("Alive or Dead", true)}
+      cellClick={action("Cell clicked")}
+      x={number("x", 10)}
+      y={number("y", 23)}
+    />
+  </Provider>
 );
