@@ -1,7 +1,7 @@
 import React from "react";
 import { CellDrawn } from "./CellDrawn";
 import { connect } from "react-redux";
-import { cellClick } from "@/rdx/actions/actions";
+import { gameFieldActions } from "@/rdx/gameField/gameFieldSlice";
 
 export interface CellProps {
   // x-coordinate of the cell
@@ -27,7 +27,7 @@ export class RawCell extends React.PureComponent<CellProps> {
 }
 
 const mapDispatchToProps = {
-  cellClick,
+  cellClick: gameFieldActions.cellClick,
 };
 
 export const Cell = connect(null, mapDispatchToProps)(RawCell);
